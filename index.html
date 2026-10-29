@@ -182,41 +182,64 @@ html.js { background: var(--ground); }
 .hero__lead { max-width: 44ch; margin: 28px auto 0; font-size: var(--step-lead); line-height: 1.4; }
 .hero__tag { margin-top: 14px; font-family: var(--ruqaa); font-weight: 700; font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem); color: var(--gold-2); line-height: 1.6; }
 
-.stack { --offset: clamp(44px, 6vh, 62px); position: absolute; left: 7%; right: 7%; top: max(56%, 470px); bottom: 0; }
-/* Liquid glass folders: the bag colours, see-through, frosted and rounded */
+.stack { --offset: clamp(56px, 7.2vh, 72px); --gap: 9px; position: absolute; left: 6%; right: 6%; top: max(55%, 460px); bottom: 0; }
+/* iPhone-style liquid glass: clear tinted glass, bright rim, soft highlight, floating panels */
 .folder {
-  --glass: color-mix(in srgb, var(--c) 84%, transparent);
+  --tint: color-mix(in srgb, var(--c) 36%, transparent);
   position: absolute; left: 0; right: 0;
   top: calc(var(--i) * var(--offset));
-  /* each band sits over the film only, so its colour stays true */
-  height: calc(var(--offset) + 10px);
-  background: var(--glass); color: var(--light); text-decoration: none;
-  border-radius: 30px 30px 0 0;
-  -webkit-backdrop-filter: blur(22px) saturate(1.5);
-          backdrop-filter: blur(22px) saturate(1.5);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .32), inset 0 0 0 1px rgba(255, 255, 255, .1), 0 -10px 40px rgba(0, 0, 0, .18);
-  transition: transform 420ms var(--ease-out), background-color 300ms ease;
+  height: calc(var(--offset) - var(--gap));
+  display: flex; align-items: center; gap: 16px;
+  padding-inline: 10px;
+  border-radius: 24px;
+  background: var(--tint); color: var(--light); text-decoration: none;
+  -webkit-backdrop-filter: blur(28px) saturate(1.9) brightness(1.08);
+          backdrop-filter: blur(28px) saturate(1.9) brightness(1.08);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .55), inset 0 -1px 1px rgba(255, 255, 255, .14), inset 0 0 28px rgba(255, 255, 255, .07), 0 14px 34px rgba(0, 0, 0, .3);
+  isolation: isolate;
+  transition: transform 500ms var(--ease-out), background-color 400ms ease, box-shadow 400ms ease;
 }
+.folder::before, .folder::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; }
 .folder::before {
-  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .04) 70px, transparent 140px); /* taste-skill-ignore: glass sheen */
+  background: radial-gradient(120% 200% at 12% -60%, rgba(255, 255, 255, .42), rgba(255, 255, 255, 0) 55%), linear-gradient(180deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, 0) 65%); /* taste-skill-ignore: glass highlight */
+}
+.folder::after {
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .1) 32%, rgba(255, 255, 255, .04) 62%, rgba(255, 255, 255, .45)); /* taste-skill-ignore: glass rim */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
 }
 .folder__tab {
-  position: absolute; bottom: calc(100% - 1px); inset-inline-start: var(--x);
-  height: 42px; min-width: 196px; padding: 0 34px;
-  display: flex; align-items: center; justify-content: center;
-  background: color-mix(in srgb, var(--c) 92%, transparent); font-weight: 600; font-size: 1.0625rem; white-space: nowrap;
-  border-radius: 20px 20px 0 0;
-  -webkit-backdrop-filter: blur(22px) saturate(1.5);
-          backdrop-filter: blur(22px) saturate(1.5);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .38), inset 1px 0 0 rgba(255, 255, 255, .1), inset -1px 0 0 rgba(255, 255, 255, .1);
+  margin-inline-start: var(--x);
+  display: inline-flex; align-items: center; gap: 12px;
+  height: 42px; padding: 0 22px; border-radius: 999px;
+  background: color-mix(in srgb, var(--c) 80%, transparent); color: var(--light); text-decoration: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .6), inset 0 -1px 1px rgba(0, 0, 0, .18), 0 6px 16px rgba(0, 0, 0, .28);
+  white-space: nowrap; transition: transform 400ms var(--ease-out);
 }
-a.folder:hover, a.folder:focus-visible { transform: translateY(-8px); --glass: color-mix(in srgb, var(--c) 88%, transparent); }
-a.folder:focus-visible { outline-offset: -6px; }
-.folder--front { --glass: color-mix(in srgb, var(--c) 88%, transparent); color: var(--ink); height: 120vh; }
-.folder__body { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 30px 32px; }
-.folder__body .btn { border-radius: 999px; clip-path: none; }
-.folder__body p { font-weight: 600; max-width: 42ch; }
+.tab__main { font: 600 1.125rem/1 var(--serif); letter-spacing: .01em; }
+.tab__alt { font: 700 1.25rem/1 var(--ruqaa); color: var(--gold-2); padding-top: 4px; }
+.tab__alt[lang="en"] { font: 600 .9375rem/1 var(--serif); padding-top: 0; opacity: .85; }
+[dir="rtl"] .tab__main { font: 700 1.0625rem/1 var(--arabic); letter-spacing: 0; }
+.folder__go {
+  margin-inline-start: auto; flex: none;
+  width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(255, 255, 255, .14); box-shadow: inset 0 1px 1px rgba(255, 255, 255, .45);
+  transition: transform 400ms var(--ease-out), background-color 300ms ease;
+}
+.folder__go svg { width: 18px; height: 18px; }
+a.folder:hover, a.folder:focus-visible { --tint: color-mix(in srgb, var(--c) 52%, transparent); transform: translateY(-4px); }
+a.folder:hover .folder__tab { transform: scale(1.04); }
+a.folder:hover .folder__go { background: rgba(255, 255, 255, .26); transform: translateX(4px); }
+[dir="rtl"] a.folder:hover .folder__go { transform: translateX(-4px); }
+a.folder:focus-visible { outline-offset: 3px; }
+.folder--front { --tint: color-mix(in srgb, var(--c) 42%, transparent); height: 120vh; align-items: flex-start; border-radius: 28px 28px 0 0; padding: 0; }
+.folder--front .folder__tab { margin: 0; color: var(--ink); background: color-mix(in srgb, var(--c) 92%, transparent); }
+.folder--front .tab__alt { color: #5b3b0a; }
+.folder__body { position: relative; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px 28px; flex-wrap: wrap; padding: 14px; }
+.folder__lead { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.folder__body .btn { border-radius: 999px; clip-path: none; box-shadow: inset 0 1px 1px rgba(255, 255, 255, .5); }
+.folder__body p { font-weight: 600; max-width: 44ch; color: var(--light); }
 .js .folder { animation: rise 1000ms var(--ease-out) backwards; animation-delay: calc(var(--start, 200ms) + var(--i) * 110ms); }
 .intro .folder { --start: 3600ms; }
 @keyframes rise { from { transform: translateY(70vh); } }
@@ -451,6 +474,24 @@ footer .band { margin: 0 -10px 10px; }
 .intro .hero [data-reveal] { transition-delay: calc(3600ms + var(--d, 0) * 120ms); }
 body { transition: opacity 220ms ease; }
 
+/* Floating glass back button */
+.back {
+  position: fixed; z-index: 25; bottom: 20px; inset-inline-end: 20px;
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 54px; padding: 0 22px 0 16px; border: 0; border-radius: 999px; cursor: pointer;
+  font-family: inherit; font-weight: 600; font-size: var(--step-small); color: var(--light);
+  background: rgba(21, 16, 12, .38);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8) brightness(1.1);
+          backdrop-filter: blur(24px) saturate(1.8) brightness(1.1);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .55), inset 0 -1px 1px rgba(255, 255, 255, .12), 0 12px 30px rgba(0, 0, 0, .35);
+  opacity: 0; transform: translateY(18px) scale(.92); pointer-events: none;
+  transition: opacity 350ms ease, transform 450ms var(--ease-out), background-color 250ms ease;
+}
+.back.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.back:hover { background: rgba(209, 165, 72, .55); }
+.back span.back__icon { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .16); box-shadow: inset 0 1px 1px rgba(255, 255, 255, .45); }
+.back svg { width: 16px; height: 16px; transform: rotate(-90deg); }
+
 /* Folder opening into its section */
 .unfold { position: fixed; inset: 0; z-index: 30; pointer-events: none; transition: clip-path 750ms var(--ease-io), opacity 450ms ease; }
 
@@ -499,12 +540,18 @@ body { transition: opacity 220ms ease; }
   .hero h1 { font-size: 17vw; }
   [dir="rtl"] .hero h1 { font-size: 16vw; }
   .hero__lead { font-size: 1.0625rem; margin-top: 20px; }
-  .stack { --offset: 50px; left: 0; right: 0; top: max(58%, 440px); }
-  .folder { border-radius: 22px 22px 0 0; }
-  .folder__tab { height: 34px; min-width: 0; padding: 0 20px; font-size: 0.9375rem; border-radius: 16px 16px 0 0; }
-  .folder__body { padding: 22px 16px; }
+  .stack { --offset: 58px; --gap: 8px; left: 12px; right: 12px; top: max(57%, 430px); }
+  .folder { border-radius: 20px; padding-inline: 8px; }
+  .folder__tab { margin-inline-start: calc(var(--i) * 14px); height: 38px; padding: 0 16px; gap: 9px; }
+  .tab__main { font-size: 1rem; }
+  .tab__alt { font-size: 1.0625rem; }
+  .folder__go { width: 32px; height: 32px; }
+  .folder--front { border-radius: 24px 24px 0 0; }
+  .folder__body { padding: 10px; }
+  .folder__lead { width: 100%; }
   .folder__body .btn { width: 100%; }
   .folder__body p { display: none; }
+  .back { bottom: 16px; inset-inline-end: 16px; height: 50px; padding: 0 18px 0 12px; }
 
   .story h2, .story__note { grid-column: 1 / -1; }
   .story h2 { font-size: 12vw; }
@@ -607,15 +654,17 @@ body { transition: opacity 220ms ease; }
   </div>
 
   <div class="stack">
-    <a class="folder" href="#story" style="--i:0; --c:var(--copper); --x:3%"><span class="folder__tab" data-i18n="fStory">Our story</span></a>
-    <a class="folder" href="#blends" style="--i:1; --c:var(--navy); --x:23%"><span class="folder__tab" data-i18n="fBlends">Eight blends</span></a>
-    <a class="folder" href="#roastery" style="--i:2; --c:var(--red); --x:43%"><span class="folder__tab" data-i18n="fProcess">Bean to cup</span></a>
-    <a class="folder" href="#machines" style="--i:3; --c:var(--blue); --x:63%"><span class="folder__tab" data-i18n="fMachines">Machines</span></a>
-    <div class="folder folder--front" style="--i:4; --c:var(--gold); --x:calc(100% - 210px)">
-      <a class="folder__tab" href="#order" style="color:var(--ink);text-decoration:none" data-i18n="fOrder">Order</a>
+    <a class="folder" href="#story" style="--i:0; --c:var(--copper); --x:0%"><span class="folder__tab"><span class="tab__main" data-i18n="fStory">Our story</span><span class="tab__alt" data-alt="fStory" lang="ar">قصتنا</span></span><span class="folder__go flip" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+    <a class="folder" href="#blends" style="--i:1; --c:var(--navy); --x:16%"><span class="folder__tab"><span class="tab__main" data-i18n="fBlends">Eight blends</span><span class="tab__alt" data-alt="fBlends" lang="ar">ثماني خلطات</span></span><span class="folder__go flip" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+    <a class="folder" href="#roastery" style="--i:2; --c:var(--red); --x:32%"><span class="folder__tab"><span class="tab__main" data-i18n="fProcess">Bean to cup</span><span class="tab__alt" data-alt="fProcess" lang="ar">من الحبّة إلى الفنجان</span></span><span class="folder__go flip" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+    <a class="folder" href="#machines" style="--i:3; --c:var(--blue); --x:48%"><span class="folder__tab"><span class="tab__main" data-i18n="fMachines">Machines</span><span class="tab__alt" data-alt="fMachines" lang="ar">المكائن</span></span><span class="folder__go flip" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+    <div class="folder folder--front" style="--i:4; --c:var(--gold)">
       <div class="folder__body">
-        <a class="btn btn--dark" href="#order"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="orderBtn">Order on WhatsApp</span></a>
-        <p data-i18n="frontNote">Choose a blend and a grind, and we reply on WhatsApp with the price.</p>
+        <div class="folder__lead">
+          <a class="folder__tab" href="#order"><span class="tab__main" data-i18n="fOrder">Order</span><span class="tab__alt" data-alt="fOrder" lang="ar">اطلب</span></a>
+          <p data-i18n="frontNote">Choose a blend and a grind, and we reply on WhatsApp with the price.</p>
+        </div>
+        <a class="btn btn--gold" href="#order"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="orderBtn">Order on WhatsApp</span></a>
       </div>
     </div>
   </div>
@@ -872,6 +921,8 @@ body { transition: opacity 220ms ease; }
   <p class="credits">Pictures and film: <a href="https://commons.wikimedia.org/wiki/File:Coffee_bean_transparent.png">“Coffee bean transparent”</a> by Chiccodoro, <a href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA 2.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Kaffe_-_Ystad-2024.ogg">“Kaffe - Ystad-2024”</a> by Jonn Leffmann, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Macro_Espresso_Process.webm">“Macro Espresso Process”</a> by Scott Schiller, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Hawler_Castle.jpg">“Hawler Castle”</a> by jan kurdistani, <a href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA 2.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Old_houses_around_the_Citadel_of_Erbil.jpg">“Old houses around the Citadel of Erbil”</a> by JEHAN SHERKO, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Coffee_tree_(Coffea_arabica)._Line_engraving_by_H._Burgh,_c._Wellcome_V0043220.jpg">“Coffee tree (Coffea arabica)”</a>, engraving by H. Burgh, Wellcome Collection, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Roasting_Coffee_Progression.png">“Roasting Coffee Progression”</a> by Nachotacl, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:A_Toper_coffee_roasting_machine.jpg">“A Toper coffee roasting machine”</a> by Robert-brook, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a>; <a href="https://commons.wikimedia.org/wiki/File:Mountains_of_Kurdistan%27.jpg">“Mountains of Kurdistan”</a> by Khoshhat, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>; <a href="https://www.flickr.com/photos/37325040@N07/5222731724">“Rocket Giotto III”</a> by Kojach, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Akha_Ama_Chiang_Mai_naked_portafilter.jpg">“Akha Ama Chiang Mai naked portafilter”</a> by Takeaway, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>. Via Wikimedia Commons and Flickr.</p>
 </footer>
 
+<button type="button" class="back" id="back" aria-label="Back to top"><span class="back__icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><span data-i18n="backTop">Back to top</span></button>
+
 <script>
 const WA = '9647506000140';
 const S3 = 'https://alshuyukhcofee-images.s3.eu-north-1.amazonaws.com/categories/Coffee/products/';
@@ -901,7 +952,7 @@ const T = {
     },
   },
   ar: {
-    skip: 'انتقل إلى المحتوى', skipIntro: 'تخطَّ المقدمة',
+    skip: 'انتقل إلى المحتوى', skipIntro: 'تخطَّ المقدمة', backTop: 'العودة للأعلى',
     navBlends: 'الخلطات', navRoastery: 'المحمصة', navMachines: 'المكائن', navFind: 'موقعنا',
     heroTitle: 'بُن الشّيوخ', heroLead: 'قهوة تُحمَّص في أربيل وفق الأسلوب الإيطالي. أول محمصة إيطالية حِرَفية في العراق.', heroTag: 'من روح إيطاليا إلى قلب كوردستان',
     fStory: 'قصتنا', fBlends: 'ثماني خلطات', fProcess: 'من الحبّة إلى الفنجان', fMachines: 'المكائن', fOrder: 'اطلب',
@@ -950,7 +1001,7 @@ const T = {
     },
   },
   ckb: {
-    skip: 'بڕۆ بۆ ناوەڕۆک', skipIntro: 'تێپەڕاندنی پێشەکی',
+    skip: 'بڕۆ بۆ ناوەڕۆک', skipIntro: 'تێپەڕاندنی پێشەکی', backTop: 'گەڕانەوە بۆ سەرەوە',
     navBlends: 'تێکەڵەکان', navRoastery: 'برژێنگە', navMachines: 'ئامێرەکان', navFind: 'شوێنمان',
     heroTitle: 'بُن الشّيوخ', heroLead: 'قاوەیەک لە هەولێر بە شێوازی ئیتاڵی دەبرژێندرێت. یەکەم برژێنگەی دەستکردی ئیتاڵی لە عێراق.', heroTag: 'من روح إيطاليا إلى قلب كوردستان',
     fStory: 'چیرۆکمان', fBlends: 'هەشت تێکەڵە', fProcess: 'لە دەنکەوە بۆ فنجان', fMachines: 'ئامێرەکان', fOrder: 'داواکاری',
@@ -1086,6 +1137,7 @@ shelf.addEventListener('click', e => {
   const btn = e.target.closest('[data-add]');
   if (!btn) return;
   blendSelect.value = BLENDS.find(b => b.id === btn.dataset.add).name;
+  history.pushState(null, '', '#order');
   document.getElementById('order').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
   const c = document.getElementById('coupon');
   c.classList.remove('is-flash'); void c.offsetWidth; c.classList.add('is-flash');
@@ -1173,7 +1225,7 @@ document.querySelectorAll('[data-bg]').forEach(z => zoneIO.observe(z));
 function unfold(target, folder) {
   if (reduce) { target.scrollIntoView(); return; }
   const r = folder.getBoundingClientRect();
-  const colour = getComputedStyle(folder).backgroundColor;
+  const colour = folder.style.getPropertyValue('--c') || getComputedStyle(folder).backgroundColor;
   const sheet = document.createElement('div');
   sheet.className = 'unfold';
   sheet.style.background = colour;
@@ -1196,12 +1248,14 @@ document.querySelectorAll('.stack a[href^="#"]').forEach(a => a.addEventListener
   const target = document.querySelector(a.getAttribute('href'));
   if (!target) return;
   e.preventDefault();
+  history.pushState(null, '', a.getAttribute('href'));
   unfold(target, a.closest('.folder'));
 }));
 document.querySelectorAll('.topbar a[href^="#"], .t-nav a[href^="#"]').forEach(a => a.addEventListener('click', e => {
   const target = document.querySelector(a.getAttribute('href'));
   if (!target) return;
   e.preventDefault();
+  history.pushState(null, '', a.getAttribute('href'));
   target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
 }));
 
@@ -1212,9 +1266,15 @@ function applyLang(next, shown) {
   root.dir = next === 'en' ? 'ltr' : 'rtl';
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll('[data-alt]').forEach(el => {
+    const other = next === 'en' ? 'ar' : 'en';
+    el.textContent = T[other][el.dataset.alt] !== undefined ? T[other][el.dataset.alt] : T.en[el.dataset.alt];
+    el.lang = other; el.dir = other === 'en' ? 'ltr' : 'rtl';
+  });
   document.querySelector('.hero__tag').setAttribute('lang', next === 'en' ? 'ckb' : 'ar');
   document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === next));
   document.getElementById('prev').setAttribute('aria-label', t('prev'));
+  back.setAttribute('aria-label', t('backTop'));
   document.getElementById('next').setAttribute('aria-label', t('next'));
   document.getElementById('pos-ask').href = waLink(t('msgPos'));
   const checked = document.querySelector('input[name="brew"]:checked');
@@ -1233,6 +1293,19 @@ document.querySelectorAll('.langs button').forEach(b => b.addEventListener('clic
   document.body.style.opacity = '0';
   setTimeout(() => { applyLang(b.dataset.lang, true); document.body.style.opacity = '1'; }, 230);
 }));
+
+/* ---------- Back button and the browser's back gesture ---------- */
+const back = document.getElementById('back');
+const toTop = () => scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+back.addEventListener('click', () => {
+  if (location.hash) history.pushState(null, '', location.pathname + location.search);
+  toTop();
+});
+addEventListener('scroll', () => back.classList.toggle('is-on', scrollY > innerHeight * 0.6), { passive: true });
+addEventListener('popstate', () => {
+  const target = location.hash && document.querySelector(location.hash);
+  if (target) target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); else toTop();
+});
 
 /* ---------- Start ---------- */
 applyLang(lang, false);
