@@ -1,0 +1,1245 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Shuyukh Coffee — Italian roastery in Erbil</title>
+<meta name="description" content="Al Shuyukh: the first Italian artisan roastery in Iraq. Eight coffees roasted in Erbil to Italian profiles, plus Rocket Milano machines and Mahlkönig grinders. Order on WhatsApp.">
+<meta name="theme-color" content="#15100c">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Libre+Franklin:wght@400;600&family=Aref+Ruqaa:wght@700&family=Vazirmatn:wght@400;700;800&display=swap" rel="stylesheet">
+<script>
+  // Decide before first paint: language, and whether the opening sequence plays
+  (function () {
+    var d = document.documentElement, lang = null, seen = false;
+    try { lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('lang'); } catch (e) {}
+    if (lang === 'ar' || lang === 'ckb') { d.lang = lang; d.dir = 'rtl'; }
+    try { seen = !!sessionStorage.getItem('intro'); } catch (e) {}
+    var skip = seen || navigator.webdriver || /nointro/.test(location.search) || matchMedia('(prefers-reduced-motion: reduce)').matches;
+    d.classList.add('js', skip ? 'no-intro' : 'intro');
+  })();
+</script>
+<style>
+:root {
+  --ground: #15100c;
+  --ground-2: #211812;
+  --light: #f1ede6;
+  --light-soft: #cfc3b1;
+  --ink: #1d1410;
+
+  --copper: #7d4b31;
+  --navy: #1c2533;
+  --navy-2: #27324a;
+  --red: #8f141a;
+  --red-2: #a3242a;
+  --blue: #1e3b8f;
+  --blue-2: #2c4ba3;
+  --gold: #d1a548;
+  --gold-2: #e2bf6d;
+
+  --serif: "Playfair Display", Georgia, serif;
+  --text: "Libre Franklin", system-ui, sans-serif;
+  --ruqaa: "Aref Ruqaa", "Vazirmatn", serif;
+  --arabic: "Vazirmatn", "Noto Naskh Arabic", system-ui, sans-serif;
+
+  --step-small: 0.9375rem;
+  --step-body: clamp(1.0625rem, 1.02rem + 0.25vw, 1.25rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2.5rem, 1.5rem + 3.6vw, 4.75rem);
+  --step-display: clamp(4.25rem, 10.5vw, 10.5rem);
+
+  --margin: clamp(16px, 2.6vw, 40px);
+  --gap-section: clamp(104px, 13vw, 200px);
+  --ease-out: cubic-bezier(.2, .7, .2, 1);
+  --ease-io: cubic-bezier(.7, 0, .2, 1);
+
+  /* The diamond lattice from the bags and the citadel's brickwork */
+  --lattice: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M14 3l11 11-11 11L3 14z' fill='%23d1a548'/%3E%3Cpath d='M14 9l5 5-5 5-5-5z' fill='%2315100c'/%3E%3C/svg%3E");
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--light);
+  font: 400 var(--step-body)/1.55 var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, video { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; letter-spacing: -0.015em; line-height: 1; margin: 0; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+::selection { background: var(--gold); color: var(--ink); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip { position: absolute; inset-inline-start: var(--margin); top: -60px; background: var(--gold); color: var(--ink); padding: 12px 18px; z-index: 50; font-weight: 600; text-decoration: none; }
+.skip:focus { top: 12px; }
+.ar-name { font-family: var(--ruqaa); font-weight: 700; }
+
+/* Right to left: Arabic and Sorani Kurdish */
+[dir="rtl"] body { font-family: var(--arabic); line-height: 1.75; }
+[dir="rtl"] h2, [dir="rtl"] h3 { font-family: var(--arabic); font-weight: 800; letter-spacing: 0; line-height: 1.25; }
+[dir="rtl"] .flip svg { transform: scaleX(-1); }
+
+/* The page's one button shape: the folder tab's cut corners */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 56px; padding: 0 28px;
+  font-family: inherit; font-weight: 600; font-size: var(--step-body); line-height: 1;
+  text-decoration: none; border: 0; cursor: pointer;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%, 0 10px);
+  transition: transform 200ms var(--ease-out), background-color 200ms ease, color 200ms ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(1px); }
+.btn--dark { background: var(--ground); color: var(--gold-2); }
+.btn--dark:hover { background: #000; }
+.btn--gold { background: var(--gold); color: var(--ink); }
+.btn--gold:hover { background: var(--gold-2); }
+.btn--line { background: rgba(241, 237, 230, .12); color: var(--light); }
+.btn--line:hover { background: rgba(241, 237, 230, .2); }
+.btn svg { width: 22px; height: 22px; flex: none; }
+
+/* The original logo, cropped to its drawing */
+.logo { display: block; position: relative; overflow: hidden; aspect-ratio: 1576 / 1356; }
+.logo img { position: absolute; max-width: none; width: 152.3%; height: auto; left: -26.14%; top: -41%; }
+
+/* Lattice band */
+.band { height: 28px; background: var(--lattice) center / 28px 28px repeat-x; }
+.js .band[data-reveal] { transform: scaleX(0); opacity: 1; transition: transform 1400ms var(--ease-io); }
+.js .band[data-reveal].is-in { transform: scaleX(1); }
+
+/* ---------- Opening sequence ---------- */
+.curtain { display: none; }
+.intro .curtain {
+  display: grid; place-items: center; align-content: center; gap: 28px;
+  position: fixed; inset: 0; z-index: 40;
+  background: var(--ground);
+  animation: lift 900ms var(--ease-io) 3100ms forwards;
+}
+.curtain .logo { width: min(240px, 46vw); animation: draw 1100ms var(--ease-out) 150ms both; }
+.curtain .logo::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 240, 200, .75) 50%, transparent 65%); /* taste-skill-ignore: foil shine on the logo */
+  mix-blend-mode: overlay; transform: translateX(-120%);
+  animation: shine 1000ms ease 2000ms forwards;
+}
+.beans { display: flex; align-items: center; justify-content: center; gap: 0; height: 96px; }
+.beans img { width: clamp(64px, 9vw, 92px); height: auto; margin-inline: -6px; filter: brightness(1.45) saturate(1.1); opacity: 0; transform: translateY(-60px) rotate(var(--r)); animation: drop 700ms cubic-bezier(.3, 1.5, .5, 1) forwards; animation-delay: calc(900ms + var(--n) * 160ms); }
+@keyframes drop { to { opacity: 1; transform: translateY(0) rotate(var(--r)); } }
+.curtain button {
+  position: absolute; bottom: 28px; inset-inline-end: var(--margin);
+  background: none; border: 0; color: var(--light-soft); font: 600 var(--step-small) var(--text); cursor: pointer; padding: 10px;
+}
+.curtain button:hover { color: var(--light); }
+.curtain.is-done { animation: lift 500ms var(--ease-io) forwards; }
+@keyframes draw { from { clip-path: inset(100% 0 0 0); transform: translateY(16px); } to { clip-path: inset(0); transform: none; } }
+@keyframes shine { to { transform: translateX(120%); } }
+@keyframes grow { to { transform: scaleX(1); } }
+@keyframes lift { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
+
+/* ---------- Scroll colour field ---------- */
+.field { position: fixed; inset: 0; z-index: -1; background: var(--ground); transition: background-color 900ms ease; }
+.js main > section { background: transparent !important; }
+.js body { background: transparent; }
+html.js { background: var(--ground); }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; min-height: max(100svh, 760px); overflow: hidden; background: var(--ground); isolation: isolate; }
+.hero__film { position: absolute; inset: 0; z-index: -1; }
+.hero__film video { width: 100%; height: 100%; object-fit: cover; }
+.hero__film::after { content: ""; position: absolute; inset: 0; background: rgba(21, 16, 12, .66); }
+
+.topbar {
+  position: relative; z-index: 3;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: 20px var(--margin) 0;
+}
+.topbar__links { display: flex; gap: 28px; font-size: var(--step-small); font-weight: 600; }
+.topbar__links a, .topbar__end a { text-decoration: none; transition: color 160ms ease; }
+.topbar__links a:hover, .topbar__end a:hover { color: var(--gold-2); }
+.topbar .logo { width: 78px; }
+.topbar__end { justify-self: end; display: flex; align-items: center; gap: 22px; font-size: var(--step-small); font-weight: 600; }
+.topbar__end > a { display: inline-flex; gap: 8px; align-items: center; }
+.topbar__end svg { width: 18px; height: 18px; }
+.langs { display: flex; gap: 2px; }
+.langs button {
+  background: none; border: 0; cursor: pointer; color: var(--light-soft);
+  font: 600 var(--step-small)/1 var(--text); padding: 10px 8px;
+  transition: color 160ms ease;
+}
+.langs button[lang] { font-family: var(--arabic); }
+.langs button:hover { color: var(--light); }
+.langs button[aria-pressed="true"] { color: var(--gold-2); }
+
+.hero__head { position: relative; z-index: 2; text-align: center; padding: clamp(52px, 8vh, 96px) var(--margin) 0; }
+.hero h1 { font-size: var(--step-display); line-height: 0.92; letter-spacing: -0.025em; }
+[dir="rtl"] .hero h1 { font-family: var(--ruqaa); letter-spacing: 0; line-height: 1.15; font-size: clamp(3.75rem, 9vw, 8.5rem); }
+.hero__lead { max-width: 44ch; margin: 28px auto 0; font-size: var(--step-lead); line-height: 1.4; }
+.hero__tag { margin-top: 14px; font-family: var(--ruqaa); font-weight: 700; font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem); color: var(--gold-2); line-height: 1.6; }
+
+.stack { --offset: clamp(44px, 6vh, 62px); position: absolute; left: 7%; right: 7%; top: max(56%, 470px); bottom: 0; }
+.folder {
+  position: absolute; left: 0; right: 0;
+  top: calc(var(--i) * var(--offset));
+  height: 120vh;
+  background: var(--c); color: var(--light); text-decoration: none;
+  transition: transform 320ms var(--ease-out);
+}
+.folder__tab {
+  position: absolute; bottom: calc(100% - 1px); inset-inline-start: var(--x);
+  height: 40px; min-width: 196px; padding: 0 34px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--c); font-weight: 600; font-size: 1.0625rem; white-space: nowrap;
+  clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 100%, 0 100%);
+}
+a.folder:hover, a.folder:focus-visible { transform: translateY(-12px); }
+a.folder:focus-visible { outline-offset: -6px; }
+.folder--front { color: var(--ink); }
+.folder__body { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 30px 32px; }
+.folder__body p { font-weight: 600; max-width: 42ch; }
+.js .folder { animation: rise 1000ms var(--ease-out) backwards; animation-delay: calc(var(--start, 200ms) + var(--i) * 110ms); }
+.intro .folder { --start: 3600ms; }
+@keyframes rise { from { transform: translateY(70vh); } }
+
+/* ---------- Sections ---------- */
+main > section { position: relative; }
+.wrap { padding-inline: var(--margin); }
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 32px); }
+figcaption { margin-top: 12px; font-size: var(--step-small); }
+
+/* Story */
+.story { background: var(--copper); padding: 0 0 var(--gap-section); }
+.story .band { margin-bottom: clamp(96px, 10vw, 150px); }
+.story h2 { grid-column: 1 / 7; font-size: var(--step-head); align-self: end; }
+.story__note { grid-column: 9 / 13; align-self: end; }
+.facts { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin: 112px 0 0; list-style: none; padding: 0; }
+.facts li { max-width: 15em; }
+.facts strong { display: block; font: 700 clamp(1.75rem, 1.2rem + 2vw, 2.75rem)/1.05 var(--serif); }
+[dir="rtl"] .facts strong { font-family: var(--arabic); font-weight: 800; line-height: 1.3; }
+.facts span { display: block; margin-top: 10px; font-size: var(--step-small); }
+.story__pics { margin-top: 96px; align-items: end; }
+.story__pics figure { margin: 0; }
+.story__pics .p1 { grid-column: 1 / 8; }
+.story__pics .p2 { grid-column: 8 / 13; }
+.story__pics img { width: 100%; object-fit: cover; }
+.story__pics .p1 img { aspect-ratio: 16 / 10; }
+.story__pics .p2 img { aspect-ratio: 4 / 5; }
+
+/* Picture reveal */
+.pic { overflow: hidden; }
+.js [data-img] .pic { clip-path: inset(0 0 100% 0); transition: clip-path 1100ms var(--ease-io); }
+.js [data-img] .pic > img, .js [data-img] .pic > svg, .js [data-img] .pic > video { transform: scale(1.18); transition: transform 1600ms var(--ease-out); }
+.js [data-img].is-in .pic { clip-path: inset(0); }
+.js [data-img].is-in .pic > img, .js [data-img].is-in .pic > svg, .js [data-img].is-in .pic > video { transform: scale(1); }
+
+/* Blends: the shelf */
+.blends { background: var(--navy); padding: var(--gap-section) 0; }
+.blends__top { align-items: end; }
+.blends__head { grid-column: 1 / 7; }
+.blends h2 { font-size: clamp(4.5rem, 11vw, 11rem); line-height: 0.85; letter-spacing: -0.03em; }
+[dir="rtl"] .blends h2 { line-height: 1.15; }
+.blends__sub { margin-top: 28px; font-size: var(--step-lead); line-height: 1.4; max-width: 30ch; }
+.picker { grid-column: 8 / 13; border: 0; padding: 0; margin: 0; }
+.picker legend { font: 700 var(--step-lead)/1.2 var(--serif); margin-bottom: 16px; padding: 0; }
+[dir="rtl"] .picker legend { font-family: var(--arabic); font-weight: 800; }
+.picker__opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.picker label { position: relative; }
+.picker input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.picker span {
+  display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px;
+  background: var(--navy-2); font-weight: 600; font-size: var(--step-small);
+  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%, 0 8px);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+.picker label:hover span { background: #34415b; }
+.picker input:checked + span { background: var(--gold); color: var(--ink); }
+.picker input:focus-visible + span { outline: 3px solid var(--gold); outline-offset: 3px; }
+.picker__answer { margin-top: 20px; min-height: 3.4em; }
+.picker__answer b { color: var(--gold-2); }
+
+.shelf { margin: 88px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px clamp(16px, 2vw, 32px); list-style: none; padding: 0; }
+.bag { min-width: 0; display: flex; flex-direction: column; transition: opacity 400ms ease, transform 400ms var(--ease-out); }
+.bag .pic { aspect-ratio: 4 / 5; background: var(--navy-2); position: relative; }
+.bag .pic img, .bag .pic svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.js .bag.is-in:hover .pic > img, .js .bag.is-in:hover .pic > svg { transform: scale(1.05); transition-duration: 700ms; }
+.bag__swatch { position: absolute; inset-inline-start: 0; bottom: 0; width: 100%; height: 8px; background: var(--bag); }
+.bag__name { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 18px; }
+.bag__name h3 { font-family: var(--serif); font-size: 1.625rem; font-weight: 700; line-height: 1.1; }
+.bag__name .ar-name { color: var(--light-soft); font-size: 1.125rem; white-space: nowrap; }
+.bag p { margin-top: 10px; font-size: var(--step-small); line-height: 1.5; }
+.bag__meta { margin-top: 12px; font-size: var(--step-small); color: var(--light-soft); }
+.bag__foot { margin-top: auto; padding-top: 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.bag__price { font-size: var(--step-small); font-weight: 600; color: var(--gold-2); text-underline-offset: 4px; }
+.bag__add {
+  background: var(--navy-2); color: var(--light); border: 0; cursor: pointer;
+  min-height: 44px; padding: 0 16px; font-family: inherit; font-weight: 600; font-size: var(--step-small);
+  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%, 0 8px);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+.bag__add:hover { background: var(--gold); color: var(--ink); }
+.shelf.has-match .bag:not(.is-match) { opacity: .38; }
+.bag.is-match { transform: translateY(-10px); }
+.bag.is-match .bag__add { background: var(--gold); color: var(--ink); }
+
+/* Bean to cup */
+.process { background: var(--red); padding: var(--gap-section) 0; }
+.process__top { display: flex; justify-content: space-between; align-items: end; gap: 24px; }
+.process h2 { font-size: var(--step-head); }
+.process__intro { margin-top: 24px; max-width: 52ch; }
+.arrows { display: flex; gap: 8px; }
+.arrows button {
+  width: 52px; height: 52px; border: 0; cursor: pointer;
+  background: var(--light); color: var(--red); display: grid; place-items: center;
+  transition: background-color 160ms ease, transform 160ms var(--ease-out);
+}
+.arrows button:hover { background: var(--gold-2); }
+.arrows button:active { transform: scale(.94); }
+.arrows svg { width: 22px; height: 22px; }
+.progress { margin-top: 40px; height: 6px; background: var(--red-2); }
+.progress i { display: block; height: 100%; width: 20%; background: var(--light); transition: width 120ms linear; }
+.row {
+  display: flex; gap: 32px; overflow-x: auto; scroll-snap-type: x mandatory;
+  margin-inline: var(--margin); padding: 48px 0 8px;
+  scrollbar-width: none; cursor: grab;
+}
+.row::-webkit-scrollbar { display: none; }
+.row.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+.moment { flex: 0 0 290px; scroll-snap-align: start; display: flex; flex-direction: column; }
+.moment h3 { font: 600 1.125rem/1.3 var(--text); letter-spacing: 0; }
+[dir="rtl"] .moment h3 { font-family: var(--arabic); font-weight: 700; }
+.moment p { margin-top: 10px; font-size: var(--step-small); line-height: 1.55; }
+.moment .gapv { flex: none; height: var(--h); }
+.moment .pic { aspect-ratio: 4 / 5; }
+.moment img, .moment video { width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
+
+/* Machines */
+.machines { background: var(--blue); min-height: 88svh; display: grid; grid-template-columns: 1fr 1fr; }
+.plate { padding: 40px; display: flex; align-items: center; }
+.plate__pic { position: relative; width: 100%; aspect-ratio: 1; background: var(--blue-2); }
+.plate__pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 500ms ease, transform 900ms var(--ease-out); }
+.js [data-img].is-in .plate__pic img.is-off, .plate__pic img.is-off { opacity: 0; transform: scale(1.06); }
+.plate__text { padding: 40px var(--margin) 40px 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 48px; }
+[dir="rtl"] .plate__text { padding: 40px 40px 40px var(--margin); }
+.machines h2 { font-size: var(--step-head); }
+.tabs { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 32px; }
+.tabs button { background: none; border: 0; padding: 6px 0; cursor: pointer; font-family: inherit; font-weight: 600; font-size: 1.125rem; line-height: 1.2; color: var(--light-soft); transition: color 160ms ease; }
+.tabs button:hover { color: var(--light); }
+.tabs button[aria-selected="true"] { color: var(--gold-2); }
+.panel h3 { font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem); line-height: 1.1; }
+.panel p { margin-top: 28px; max-width: 36ch; }
+.panel:not([hidden]) { animation: fadeup 500ms var(--ease-out); }
+@keyframes fadeup { from { opacity: 0; transform: translateY(14px); } }
+.cells { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cell { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 22px; text-decoration: none; font-weight: 600; transition: background-color 160ms ease; }
+.cell svg { width: 22px; height: 22px; flex: none; transition: transform 220ms var(--ease-out); }
+.cell:hover svg { transform: translateX(4px); }
+[dir="rtl"] .cell.flip:hover svg { transform: scaleX(-1) translateX(4px); }
+.cell--ink { background: var(--ground); color: var(--gold-2); }
+.cell--ink:hover { background: #000; }
+.cell--tone { background: var(--blue-2); color: var(--light); }
+.cell--tone:hover { background: #3858b4; }
+
+/* Find us */
+.find { background: var(--ground-2); padding: var(--gap-section) 0; }
+.find__grid { align-items: start; }
+.find__text { grid-column: 1 / 6; }
+.find h2 { font-size: var(--step-head); }
+.find__text > p { margin-top: 28px; max-width: 42ch; }
+.where { margin: 40px 0 0; display: grid; gap: 22px; }
+.where dt { font-size: var(--step-small); color: var(--light-soft); }
+.where dd { margin: 4px 0 0; font-weight: 600; }
+.where a { text-underline-offset: 4px; }
+.find__btns { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 8px; }
+.find__map { grid-column: 7 / 13; margin: 0; }
+.find__map .pic { aspect-ratio: 4 / 3.4; background: var(--ground); }
+.find__map iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(.8) sepia(.25) brightness(.92) contrast(1.05); }
+
+/* Order coupon */
+.order { padding: var(--gap-section) var(--margin); background: var(--ground); }
+.coupon {
+  --notch: 14px; --cut: 46%;
+  position: relative; width: min(100%, 1180px); margin: 0 auto;
+  background: var(--gold); color: var(--ink);
+  display: grid; grid-template-columns: 46fr 54fr;
+  -webkit-mask: radial-gradient(circle var(--notch) at var(--cut) 0, #0000 98%, #000) top / 100% 51% no-repeat, radial-gradient(circle var(--notch) at var(--cut) 100%, #0000 98%, #000) bottom / 100% 51% no-repeat; /* taste-skill-ignore: notch mask */
+          mask: radial-gradient(circle var(--notch) at var(--cut) 0, #0000 98%, #000) top / 100% 51% no-repeat, radial-gradient(circle var(--notch) at var(--cut) 100%, #0000 98%, #000) bottom / 100% 51% no-repeat; /* taste-skill-ignore: notch mask */
+}
+[dir="rtl"] .coupon { --cut: 54%; }
+.coupon.is-flash { animation: flash 900ms var(--ease-out); }
+@keyframes flash { 30% { transform: scale(1.015); } }
+.coupon__left { padding: 48px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+.coupon h2 { font-size: clamp(2rem, 1.4rem + 2.2vw, 3.25rem); line-height: 1.05; }
+.coupon__contact { display: grid; gap: 6px; font-weight: 600; }
+.coupon__contact a { text-decoration-thickness: 2px; text-underline-offset: 4px; direction: ltr; justify-self: start; }
+.coupon__right { padding: 48px; border-inline-start: 5px dotted var(--ground); display: grid; gap: 10px; align-content: center; }
+.field-in { position: relative; }
+.field-in input, .field-in select {
+  width: 100%; height: 56px; padding: 0 18px;
+  background: var(--gold-2); color: var(--ink); border: 0; border-radius: 0;
+  font-family: inherit; font-size: var(--step-body); line-height: 1;
+  appearance: none; -webkit-appearance: none;
+}
+.field-in input::placeholder { color: #4f3a1d; }
+.field-in select { padding-inline-end: 48px; cursor: pointer; }
+.field-in--select::after { content: ""; position: absolute; inset-inline-end: 20px; top: 50%; width: 10px; height: 10px; border-right: 3px solid var(--ink); border-bottom: 3px solid var(--ink); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.field-in input:focus-visible, .field-in select:focus-visible { outline: 3px solid var(--ink); outline-offset: 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.submit { margin-top: 6px; height: 60px; width: 100%; border: 0; cursor: pointer; background: var(--ground); color: var(--gold-2); font-family: inherit; font-weight: 600; font-size: var(--step-body); display: flex; align-items: center; justify-content: center; gap: 12px; transition: background-color 160ms ease, transform 160ms var(--ease-out); }
+.submit:hover { background: #000; }
+.submit:active { transform: translateY(1px); }
+.submit svg { width: 22px; height: 22px; }
+
+/* Footer */
+footer { padding: 0 10px 10px; background: var(--ground); position: relative; }
+footer .band { margin: 0 -10px 10px; }
+.tiles { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 8px; }
+.tile { background: var(--ground-2); padding: 24px; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; }
+.t-state { grid-column: 1 / 5; }
+.t-state p:first-child { font-size: var(--step-lead); line-height: 1.3; max-width: 22ch; }
+.t-nav { grid-column: 5 / 8; }
+.t-nav ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.t-nav a { text-decoration: none; transition: color 160ms ease; }
+.t-nav a:hover { color: var(--gold-2); }
+.t-time { grid-column: 8 / 10; }
+.t-time strong { font: 700 var(--step-head)/1 var(--serif); font-variant-numeric: tabular-nums; direction: ltr; display: block; }
+[dir="rtl"] .t-time strong { text-align: right; }
+.t-mail { grid-column: 10 / 13; }
+.t-mail a { font-size: 1.25rem; font-weight: 600; text-underline-offset: 4px; word-break: break-word; }
+.t-mail a:hover { color: var(--gold-2); }
+.t-word { grid-column: 1 / 9; min-height: 320px; background: var(--ink); align-items: center; justify-content: center; }
+.t-word .logo { width: min(260px, 50%); }
+.t-cta { grid-column: 9 / 13; min-height: 320px; background: var(--gold); color: var(--ink); text-decoration: none; transition: background-color 200ms ease; }
+.t-cta:hover { background: var(--gold-2); }
+.t-cta b { font: 700 clamp(1.75rem, 1.3rem + 1vw, 2.25rem)/1.1 var(--serif); max-width: 12ch; }
+[dir="rtl"] .t-cta b { font-family: var(--arabic); font-weight: 800; line-height: 1.35; }
+.t-cta svg { align-self: flex-end; width: 64px; height: 64px; transition: transform 260ms var(--ease-out); }
+.t-cta:hover svg { transform: translate(6px, -6px); }
+[dir="rtl"] .t-cta svg { transform: scaleX(-1); }
+[dir="rtl"] .t-cta:hover svg { transform: scaleX(-1) translate(6px, -6px); }
+.small { font-size: var(--step-small); color: var(--light-soft); }
+.credits { padding: 28px var(--margin) 20px; font-size: var(--step-small); color: var(--light-soft); max-width: 75ch; direction: ltr; text-align: left; }
+.credits a { color: var(--light-soft); }
+
+/* ---------- Headline lines and entrances ---------- */
+.ln { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .16em; margin-bottom: -.16em; }
+.ln > span { display: inline-block; }
+.js [data-split] .ln > span { transform: translateY(160%); transition: transform 1000ms var(--ease-out); transition-delay: calc(var(--l, 0) * 110ms + var(--base, 0ms)); }
+.js [data-split].is-in .ln > span { transform: none; }
+.js [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out); transition-delay: calc(var(--d, 0) * 90ms); }
+.js [data-reveal].is-in { opacity: 1; transform: none; }
+.intro .hero [data-split] { --base: 3400ms; }
+.intro .hero [data-reveal] { transition-delay: calc(3600ms + var(--d, 0) * 120ms); }
+body { transition: opacity 220ms ease; }
+
+/* Folder opening into its section */
+.unfold { position: fixed; inset: 0; z-index: 30; pointer-events: none; transition: clip-path 750ms var(--ease-io), opacity 450ms ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal], .js [data-split] .ln > span, .js [data-img] .pic, .js [data-img] .pic > * { opacity: 1; transform: none; clip-path: none; transition: none; }
+  .js .folder { animation: none; }
+  .js .band[data-reveal] { transform: none; }
+  .field { transition: none; }
+  * { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  .topbar__links { display: none; }
+  .topbar { grid-template-columns: auto 1fr; }
+  .story h2 { grid-column: 1 / 10; }
+  .story__note { grid-column: 1 / 13; margin-top: 28px; max-width: 46ch; }
+  .blends__head, .picker { grid-column: 1 / -1; }
+  .picker { margin-top: 56px; }
+  .shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .machines { grid-template-columns: 1fr; min-height: 0; }
+  .plate { padding: 40px var(--margin) 0; }
+  .plate__text, [dir="rtl"] .plate__text { padding: 40px var(--margin) 64px; }
+  .find__text, .find__map { grid-column: 1 / -1; }
+  .find__map { margin-top: 56px; }
+  .coupon {
+    grid-template-columns: 1fr;
+    -webkit-mask: radial-gradient(circle var(--notch) at 0 50%, #0000 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle var(--notch) at 100% 50%, #0000 98%, #000) right / 51% 100% no-repeat; /* taste-skill-ignore: notch mask */
+            mask: radial-gradient(circle var(--notch) at 0 50%, #0000 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle var(--notch) at 100% 50%, #0000 98%, #000) right / 51% 100% no-repeat; /* taste-skill-ignore: notch mask */
+  }
+  .coupon__left, .coupon__right { padding: 36px 28px; }
+  .coupon__right { border-inline-start: 0; border-top: 5px dotted var(--ground); }
+  .tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .t-state, .t-nav, .t-time, .t-mail { grid-column: span 3; }
+  .t-word, .t-cta { grid-column: 1 / -1; }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 720px) {
+  .topbar { padding-top: 14px; }
+  .topbar .logo { width: 60px; }
+  .topbar__end { gap: 10px; }
+  .topbar__end > a span { display: none; }
+  .hero { min-height: max(100svh, 700px); }
+  .hero__head { padding-top: 56px; }
+  .hero h1 { font-size: 17vw; }
+  [dir="rtl"] .hero h1 { font-size: 16vw; }
+  .hero__lead { font-size: 1.0625rem; margin-top: 20px; }
+  .stack { --offset: 50px; left: 0; right: 0; top: max(58%, 440px); }
+  .folder__tab { height: 32px; min-width: 0; padding: 0 20px; font-size: 0.9375rem; clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 100%, 0 100%); }
+  .folder__body { padding: 22px 16px; }
+  .folder__body .btn { width: 100%; }
+  .folder__body p { display: none; }
+
+  .story h2, .story__note { grid-column: 1 / -1; }
+  .story h2 { font-size: 12vw; }
+  [dir="rtl"] .story h2 { font-size: 10vw; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 20px; margin-top: 64px; }
+  .facts strong { font-size: 1.625rem; }
+  .story__pics { margin-top: 64px; row-gap: 32px; }
+  .story__pics .p1, .story__pics .p2 { grid-column: 1 / -1; }
+
+  .blends h2 { font-size: 23vw; }
+  .shelf { gap: 36px 12px; margin-top: 64px; }
+  .bag__name { flex-direction: column; gap: 2px; }
+  .bag__name h3 { font-size: 1.25rem; }
+  .bag p:not(.bag__meta) { display: none; }
+  .bag__foot { flex-direction: column; align-items: stretch; }
+  .bag__add { width: 100%; }
+
+  .process__top { flex-direction: column; align-items: start; }
+  .arrows { display: none; }
+  .row { gap: 16px; padding-top: 32px; }
+  .moment { flex-basis: 72vw; }
+  .moment .gapv { height: calc(var(--h) * 0.4); }
+
+  .plate { padding: 16px; }
+  .plate__text, [dir="rtl"] .plate__text { padding: 32px 16px 56px; gap: 32px; }
+  .tabs { gap: 20px; margin-top: 24px; }
+  .panel h3 { font-size: 1.75rem; }
+  .cells { grid-template-columns: 1fr; }
+  .cell { min-height: 60px; }
+  .find__btns .btn { width: 100%; }
+
+  .order { padding-inline: 12px; }
+  .coupon__left, .coupon__right { padding: 28px 20px; }
+  .two { grid-template-columns: 1fr; }
+
+  footer { padding: 0 6px 6px; }
+  footer .band { margin: 0 -6px 6px; }
+  .tiles { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .tile { padding: 20px; min-height: 180px; }
+  .t-word { order: -2; grid-column: 1 / -1; min-height: 200px; }
+  .t-cta { order: -1; grid-column: 1 / -1; min-height: 200px; }
+  .t-nav, .t-mail, .t-time, .t-state { grid-column: span 1; }
+  .t-state p:first-child { font-size: 1.0625rem; }
+  .t-mail a { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<div class="field" id="field" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></symbol>
+    <symbol id="i-canopy" viewBox="0 0 46 40"><path fill="none" stroke="#d1a548" stroke-width="2.6" stroke-linejoin="round" d="M3 38V17c5 0 9-2.5 12.5-6.5C18.8 6.8 21 4 23 2c2 2 4.2 4.8 7.5 8.5C34 14.5 38 17 43 17v21Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="curtain" id="curtain" aria-hidden="true">
+  <span class="logo"><img src="https://alshuyukhcoffee.com/api/uploads/1782029330708-484951487.png" width="2400" height="2400" alt=""></span>
+  <div class="beans">
+    <img src="assets/coffee-bean-transparent.png" width="1005" height="1005" alt="" style="--n:0; --r:-28deg">
+    <img src="assets/coffee-bean-transparent.png" width="1005" height="1005" alt="" style="--n:1; --r:14deg">
+    <img src="assets/coffee-bean-transparent.png" width="1005" height="1005" alt="" style="--n:2; --r:-6deg">
+    <img src="assets/coffee-bean-transparent.png" width="1005" height="1005" alt="" style="--n:3; --r:32deg">
+    <img src="assets/coffee-bean-transparent.png" width="1005" height="1005" alt="" style="--n:4; --r:-18deg">
+  </div>
+  <button type="button" id="skip-intro" data-i18n="skipIntro">Skip intro</button>
+</div>
+
+<header class="hero" id="top" data-bg="#15100c">
+  <div class="hero__film">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/kaffe-ystad-2024-poster.jpg" width="854" height="480" aria-hidden="true"><source src="assets/kaffe-ystad-2024.webm" type="video/webm"></video>
+  </div>
+
+  <nav class="topbar" aria-label="Main">
+    <div class="topbar__links">
+      <a href="#blends" data-i18n="navBlends">Blends</a>
+      <a href="#roastery" data-i18n="navRoastery">Roastery</a>
+      <a href="#machines" data-i18n="navMachines">Machines</a>
+      <a href="#find" data-i18n="navFind">Find us</a>
+    </div>
+    <a class="logo" href="#top" aria-label="Al Shuyukh Coffee"><img src="https://alshuyukhcoffee.com/api/uploads/1782029330708-484951487.png" width="2400" height="2400" alt="Al Shuyukh Coffee"></a>
+    <div class="topbar__end">
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button>
+        <button type="button" data-lang="ckb" lang="ckb" aria-pressed="false">کوردی</button>
+      </div>
+      <a href="https://wa.me/9647506000140" aria-label="WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+    </div>
+  </nav>
+
+  <div class="hero__head">
+    <h1 data-split data-i18n="heroTitle">Al Shuyukh</h1>
+    <p class="hero__lead" data-reveal style="--d:1" data-i18n="heroLead">Coffee roasted in Erbil to Italian profiles. The first Italian artisan roastery in Iraq.</p>
+    <p class="hero__tag" data-reveal style="--d:2" data-i18n="heroTag" lang="ckb" dir="rtl">لە ڕۆحی ئیتاڵیاوە بۆ دڵی کوردستان</p>
+  </div>
+
+  <div class="stack">
+    <a class="folder" href="#story" style="--i:0; --c:var(--copper); --x:3%"><span class="folder__tab" data-i18n="fStory">Our story</span></a>
+    <a class="folder" href="#blends" style="--i:1; --c:var(--navy); --x:23%"><span class="folder__tab" data-i18n="fBlends">Eight blends</span></a>
+    <a class="folder" href="#roastery" style="--i:2; --c:var(--red); --x:43%"><span class="folder__tab" data-i18n="fProcess">Bean to cup</span></a>
+    <a class="folder" href="#machines" style="--i:3; --c:var(--blue); --x:63%"><span class="folder__tab" data-i18n="fMachines">Machines</span></a>
+    <div class="folder folder--front" style="--i:4; --c:var(--gold); --x:calc(100% - 210px)">
+      <a class="folder__tab" href="#order" style="color:var(--ink);text-decoration:none" data-i18n="fOrder">Order</a>
+      <div class="folder__body">
+        <a class="btn btn--dark" href="#order"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="orderBtn">Order on WhatsApp</span></a>
+        <p data-i18n="frontNote">Choose a blend and a grind, and we reply on WhatsApp with the price.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="story" id="story" aria-labelledby="story-h" data-bg="#7d4b31">
+    <div class="band" data-reveal></div>
+    <div class="wrap">
+      <div class="grid">
+        <h2 id="story-h" data-split data-i18n="storyH">Italy, roasted in Erbil</h2>
+        <p class="story__note" data-reveal style="--d:2" data-i18n="storyNote">From the world’s finest origins to our roastery on the Erbil–Mosul road, every lot is chosen and roasted under the eye of Italian coffee masters, then packed in the colour of its blend.</p>
+      </div>
+      <ul class="facts">
+        <li data-reveal><strong data-i18n="f1">First</strong><span data-i18n="f1s">Italian artisan roastery in Iraq</span></li>
+        <li data-reveal style="--d:1"><strong data-i18n="f2">Eight</strong><span data-i18n="f2s">coffees, from espresso to Turkish</span></li>
+        <li data-reveal style="--d:2"><strong data-i18n="f3">Sat–Thu</strong><span data-i18n="f3s">open 9:00 to 16:00 at 32 Park, Erbil</span></li>
+        <li data-reveal style="--d:3"><strong data-i18n="f4">One message</strong><span data-i18n="f4s">to order: every price is quoted on WhatsApp</span></li>
+      </ul>
+      <div class="grid story__pics">
+        <figure class="p1" data-img>
+          <div class="pic"><img src="assets/hawler-castle.jpg" width="1920" height="1344" alt="Aerial view of the Citadel of Erbil, a walled mound in the centre of the city" loading="lazy"></div>
+          <figcaption data-i18n="cap1">The Citadel of Erbil, Hawler, the city we roast in.</figcaption>
+        </figure>
+        <figure class="p2" data-img>
+          <div class="pic"><img src="https://alshuyukhcofee-images.s3.eu-north-1.amazonaws.com/categories/Coffee/products/premium-blend/product-images/image-1784654454131.webp" width="1023" height="1537" alt="A blue bag of Al Shuyukh Premium Blend with the gold canopy emblem" loading="lazy"></div>
+          <figcaption data-i18n="cap2">Premium Blend, in its blue bag.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="blends" id="blends" aria-labelledby="blends-h" data-bg="#1c2533">
+    <div class="wrap">
+      <div class="grid blends__top">
+        <div class="blends__head">
+          <h2 id="blends-h" data-split data-i18n="blendsH">Blends</h2>
+          <p class="blends__sub" data-reveal style="--d:2" data-i18n="blendsSub">Eight coffees, each in its own colour of bag. Tell us how you brew and we will point you to one.</p>
+        </div>
+        <fieldset class="picker" data-reveal style="--d:3">
+          <legend data-i18n="pickLegend">How do you brew?</legend>
+          <div class="picker__opts">
+            <label><input type="radio" name="brew" value="espresso"><span data-i18n="bEspresso">Espresso</span></label>
+            <label><input type="radio" name="brew" value="milk"><span data-i18n="bMilk">With milk</span></label>
+            <label><input type="radio" name="brew" value="moka"><span data-i18n="bMoka">Moka pot</span></label>
+            <label><input type="radio" name="brew" value="filter"><span data-i18n="bFilter">Filter or V60</span></label>
+            <label><input type="radio" name="brew" value="turkish"><span data-i18n="bTurkish">Turkish, in a cezve</span></label>
+            <label><input type="radio" name="brew" value="new"><span data-i18n="bNew">Something new</span></label>
+          </div>
+          <p class="picker__answer" id="answer" aria-live="polite" data-i18n="pickDefault">Pick one and we will bring forward the bag that suits it.</p>
+        </fieldset>
+      </div>
+      <ul class="shelf" id="shelf"></ul>
+    </div>
+  </section>
+
+  <section class="process" id="roastery" aria-labelledby="roastery-h" data-bg="#8f141a">
+    <div class="wrap">
+      <div class="process__top">
+        <div>
+          <h2 id="roastery-h" data-split data-i18n="processH">From bean to cup</h2>
+          <p class="process__intro" data-reveal style="--d:2" data-i18n="processIntro">Seven moments between the coffee tree and the cup on your table, and the part of each one that happens in Erbil.</p>
+        </div>
+        <div class="arrows">
+          <button type="button" id="prev" class="flip" aria-label="Previous"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+          <button type="button" id="next" class="flip" aria-label="Next"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+      <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+    </div>
+    <div class="row" id="row" tabindex="0" aria-labelledby="roastery-h">
+      <article class="moment" data-img>
+        <h3 data-i18n="m1h">It starts on a tree</h3>
+        <p data-i18n="m1p">Arabica cherries ripen on the coffee tree. We buy the green seed from the world’s finest origins.</p>
+        <div class="gapv" style="--h:120px"></div>
+        <div class="pic"><img src="assets/coffee-tree-coffea-arabica-line-engraving-by.jpg" width="1920" height="2432" alt="An eighteenth-century engraving of a coffee branch with leaves, flowers and cherries" loading="lazy"></div>
+      </article>
+      <article class="moment" data-img>
+        <h3 data-i18n="m2h">Then it crosses the mountains</h3>
+        <p data-i18n="m2p">Green coffee travels to Kurdistan and up to Erbil, where it rests before roasting.</p>
+        <div class="gapv" style="--h:56px"></div>
+        <div class="pic"><img src="assets/mountains-of-kurdistan.jpg" width="1920" height="1280" alt="Green mountains of Kurdistan in Erbil province under a clear sky" loading="lazy"></div>
+      </article>
+      <article class="moment" data-img>
+        <h3 data-i18n="m3h">It arrives under the citadel</h3>
+        <p data-i18n="m3p">Our roastery stands at 32 Park on the Erbil–Mosul road, in a city that has been lived in for millennia.</p>
+        <div class="gapv" style="--h:140px"></div>
+        <div class="pic"><img src="assets/old-houses-around-the-citadel-of-erbil.jpg" width="1920" height="1080" alt="The brick walls of the Citadel of Erbil with their diamond patterns, seen from below" loading="lazy"></div>
+      </article>
+      <article class="moment" data-img>
+        <h3 data-i18n="m4h">We roast to an Italian profile</h3>
+        <p data-i18n="m4p">Each blend has a curve set with Italian coffee masters, from a light filter roast to a deep espresso.</p>
+        <div class="gapv" style="--h:80px"></div>
+        <div class="pic"><img src="assets/roasting-coffee-progression.png" width="1920" height="1440" alt="Coffee beans laid out from green to dark brown, showing the stages of a roast" loading="lazy"></div>
+      </article>
+      <article class="moment" data-img>
+        <h3 data-i18n="m5h">In a drum, a lot at a time</h3>
+        <p data-i18n="m5p">Beans turn in a hot drum until the roaster calls the end of the roast, then cool fast on the tray.</p>
+        <div class="gapv" style="--h:128px"></div>
+        <div class="pic"><img src="assets/a-toper-coffee-roasting-machine.jpg" width="1536" height="2048" alt="A drum coffee roaster with its cooling tray" loading="lazy"></div>
+      </article>
+      <article class="moment" data-img>
+        <h3 data-i18n="m6h">Sealed in its colour</h3>
+        <p data-i18n="m6p">Every blend has its own bag, so the shelf reads at a glance: black for Intenso, blue for Premium.</p>
+        <div class="gapv" style="--h:64px"></div>
+        <div class="pic"><img src="https://alshuyukhcofee-images.s3.eu-north-1.amazonaws.com/categories/Coffee/products/intenso/product-images/image-1784654127176.webp" width="1023" height="1537" alt="A black bag of Al Shuyukh Intenso with a gold ornamental band" loading="lazy"></div>
+      </article>
+      <article class="moment" data-img>
+        <h3 data-i18n="m7h">And ends in your cup</h3>
+        <p data-i18n="m7p">At home, in your café, or on a Rocket machine we set up for you.</p>
+        <div class="gapv" style="--h:112px"></div>
+        <div class="pic"><video autoplay muted loop playsinline preload="metadata" poster="assets/macro-espresso-process-poster.jpg" width="854" height="480" aria-hidden="true"><source src="assets/macro-espresso-process.webm" type="video/webm"></video></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="machines" id="machines" aria-labelledby="machines-h" data-bg="#1e3b8f">
+    <div class="plate" data-img>
+      <div class="plate__pic pic" id="plate-pic">
+        <img src="assets/rocket-giotto-iii.jpg" width="1024" height="683" alt="A polished Rocket Giotto espresso machine, made in Italy" data-for="rocket" loading="lazy">
+        <img class="is-off" src="https://alshuyukhcofee-images.s3.eu-north-1.amazonaws.com/categories/Grinders/products/e65-gbs/product-images/image-1782640306651.webp" alt="A Mahlkönig E65S GbS espresso grinder" data-for="mahlkonig" loading="lazy">
+        <img class="is-off" src="assets/akha-ama-chiang-mai-naked-portafilter.jpg" width="1920" height="1920" alt="A barista's bottomless portafilter in use at a café bar" data-for="cafe" loading="lazy">
+      </div>
+    </div>
+    <div class="plate__text">
+      <div>
+        <h2 id="machines-h" data-split data-i18n="machinesH">Machines and grinders</h2>
+        <div class="tabs" role="tablist" aria-labelledby="machines-h" data-reveal style="--d:2">
+          <button role="tab" id="tab-rocket" aria-controls="p-rocket" aria-selected="true">Rocket Milano</button>
+          <button role="tab" id="tab-mahlkonig" aria-controls="p-mahlkonig" aria-selected="false" tabindex="-1">Mahlkönig</button>
+          <button role="tab" id="tab-cafe" aria-controls="p-cafe" aria-selected="false" tabindex="-1" data-i18n="tabCafe">For cafés</button>
+        </div>
+      </div>
+      <div>
+        <div class="panel" role="tabpanel" id="p-rocket" aria-labelledby="tab-rocket">
+          <h3 data-i18n="rocketH">Espresso machines from Milan</h3>
+          <p data-i18n="rocketP">We carry Rocket Milano machines for the home bar and the café counter, and we help you choose the one that fits your cups per day.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="p-mahlkonig" aria-labelledby="tab-mahlkonig" hidden>
+          <h3 data-i18n="mahlH">Grinders that hold a dose</h3>
+          <p data-i18n="mahlP">Mahlkönig and Ditting grinders, from the E65S grind-by-weight for espresso to all-round grinders for filter and Turkish.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="p-cafe" aria-labelledby="tab-cafe" hidden>
+          <h3 data-i18n="cafeH">Opening a café in Kurdistan?</h3>
+          <p data-i18n="cafeP">Ask us about beans, a machine, a grinder and cleaning supplies together, so your bar is set up around one coffee.</p>
+        </div>
+      </div>
+      <div class="cells" data-reveal style="--d:2">
+        <a class="cell cell--ink" id="machine-ask" href="https://wa.me/9647506000140"><span data-i18n="askThis">Ask about this</span> <svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+        <a class="cell cell--tone flip" href="https://alshuyukhcoffee.com/products"><span data-i18n="fullRange">See the full range</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="find" id="find" aria-labelledby="find-h" data-bg="#211812">
+    <div class="wrap grid find__grid">
+      <div class="find__text">
+        <h2 id="find-h" data-split data-i18n="findH">Find us in Erbil</h2>
+        <p data-reveal style="--d:2" data-i18n="findP">The roastery and shop are at 32 Park on the Erbil–Mosul road, behind the Ford showroom. Our coffee is also served and sold around Erbil: message us for the point of sale nearest you.</p>
+        <dl class="where" data-reveal style="--d:3">
+          <div><dt data-i18n="lAddress">Address</dt><dd data-i18n="address">32 Park, Erbil–Mosul Road, behind the Ford showroom, Erbil 44001</dd></div>
+          <div><dt data-i18n="lHours">Hours</dt><dd data-i18n="hours">Saturday to Thursday, 9:00–16:00. Closed Fridays.</dd></div>
+          <div><dt data-i18n="lPhone">Phone</dt><dd><a href="tel:+9647506000140" dir="ltr">+964 750 600 0140</a> · <a href="tel:+9647704450320" dir="ltr">+964 770 445 0320</a></dd></div>
+        </dl>
+        <div class="find__btns" data-reveal style="--d:4">
+          <a class="btn btn--gold" href="https://www.google.com/maps/search/?api=1&amp;query=Alshuyukh%20Coffee%20Erbil"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="directions">Get directions</span></a>
+          <a class="btn btn--line" id="pos-ask" href="https://wa.me/9647506000140"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="nearest">Nearest point of sale</span></a>
+        </div>
+      </div>
+      <figure class="find__map" data-img>
+        <div class="pic"><iframe title="Map of Al Shuyukh Coffee in Erbil" src="https://www.google.com/maps?q=Alshuyukh%20Coffee%2C%20Erbil%E2%80%93Mosul%20Road%2C%20Erbil&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <figcaption data-i18n="mapCap">The roastery on the Erbil–Mosul road.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="order" id="order" aria-labelledby="order-h" data-bg="#15100c">
+    <form class="coupon" id="coupon" data-reveal>
+      <div class="coupon__left">
+        <h2 id="order-h" data-i18n="orderH">Order in one message</h2>
+        <p data-i18n="orderP">Fill in the coupon and it opens WhatsApp with your order written out. We reply with the price and delivery.</p>
+        <div class="coupon__contact">
+          <a href="tel:+9647506000140">+964 750 600 0140</a>
+          <a href="tel:+9647704450320">+964 770 445 0320</a>
+          <span data-i18n="addrShort">32 Park, Erbil–Mosul Road, behind the Ford showroom</span>
+        </div>
+      </div>
+      <div class="coupon__right">
+        <div class="field-in">
+          <label class="sr-only" for="f-name" data-i18n="phName">Your name</label>
+          <input id="f-name" name="name" placeholder="Your name" data-i18n-ph="phName" autocomplete="name">
+        </div>
+        <div class="field-in field-in--select">
+          <label class="sr-only" for="f-blend" data-i18n="lBlend">Blend</label>
+          <select id="f-blend" name="blend"></select>
+        </div>
+        <div class="two">
+          <div class="field-in field-in--select">
+            <label class="sr-only" for="f-grind" data-i18n="lGrind">Grind</label>
+            <select id="f-grind" name="grind">
+              <option value="whole" data-i18n="gWhole">Whole bean</option>
+              <option value="espresso" data-i18n="gEspresso">Ground for espresso</option>
+              <option value="moka" data-i18n="gMoka">Ground for moka pot</option>
+              <option value="filter" data-i18n="gFilter">Ground for filter</option>
+              <option value="turkish" data-i18n="gTurkish">Ground for Turkish</option>
+            </select>
+          </div>
+          <div class="field-in">
+            <label class="sr-only" for="f-qty" data-i18n="lQty">Number of bags</label>
+            <input id="f-qty" name="qty" type="number" min="1" max="99" value="1" inputmode="numeric">
+          </div>
+        </div>
+        <button class="submit" type="submit"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="send">Send on WhatsApp</span></button>
+      </div>
+    </form>
+  </section>
+
+</main>
+
+<footer data-bg="#15100c">
+  <div class="band" data-reveal></div>
+  <div class="tiles">
+    <div class="tile t-state">
+      <p data-i18n="statement">From the soul of Italy to the heart of Kurdistan.</p>
+      <p class="small">© 2026 Alshuyukh Coffee Trading L.L.C S.O.C</p>
+    </div>
+    <nav class="tile t-nav" aria-label="Footer">
+      <ul>
+        <li><a href="#story" data-i18n="fStory">Our story</a></li>
+        <li><a href="#blends" data-i18n="navBlends">Blends</a></li>
+        <li><a href="#roastery" data-i18n="fProcess">Bean to cup</a></li>
+        <li><a href="#machines" data-i18n="navMachines">Machines</a></li>
+        <li><a href="#find" data-i18n="navFind">Find us</a></li>
+        <li><a href="https://www.instagram.com/alshuyukh_coffee/">Instagram</a></li>
+      </ul>
+    </nav>
+    <div class="tile t-time">
+      <span class="small" data-i18n="erbilNow">Erbil, now</span>
+      <div><strong id="clock">09:00</strong><p class="small" id="open-state">Open Sat–Thu, 9:00–16:00</p></div>
+    </div>
+    <div class="tile t-mail">
+      <span class="small" data-i18n="writeUs">Write to us</span>
+      <a href="mailto:info@alshuyukhcoffee.com">info@alshuyukhcoffee.com</a>
+    </div>
+    <div class="tile t-word">
+      <span class="logo"><img src="https://alshuyukhcoffee.com/api/uploads/1782029330708-484951487.png" width="2400" height="2400" alt="Al Shuyukh Coffee" loading="lazy"></span>
+    </div>
+    <a class="tile t-cta" href="https://wa.me/9647506000140">
+      <b data-i18n="ctaWa">Message us on WhatsApp</b>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="4" d="M16 48 48 16M22 16h26v26"/></svg>
+    </a>
+  </div>
+  <p class="credits">Pictures and film: <a href="https://commons.wikimedia.org/wiki/File:Coffee_bean_transparent.png">“Coffee bean transparent”</a> by Chiccodoro, <a href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA 2.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Kaffe_-_Ystad-2024.ogg">“Kaffe - Ystad-2024”</a> by Jonn Leffmann, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Macro_Espresso_Process.webm">“Macro Espresso Process”</a> by Scott Schiller, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Hawler_Castle.jpg">“Hawler Castle”</a> by jan kurdistani, <a href="https://creativecommons.org/licenses/by-sa/2.0">CC BY-SA 2.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Old_houses_around_the_Citadel_of_Erbil.jpg">“Old houses around the Citadel of Erbil”</a> by JEHAN SHERKO, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Coffee_tree_(Coffea_arabica)._Line_engraving_by_H._Burgh,_c._Wellcome_V0043220.jpg">“Coffee tree (Coffea arabica)”</a>, engraving by H. Burgh, Wellcome Collection, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Roasting_Coffee_Progression.png">“Roasting Coffee Progression”</a> by Nachotacl, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:A_Toper_coffee_roasting_machine.jpg">“A Toper coffee roasting machine”</a> by Robert-brook, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a>; <a href="https://commons.wikimedia.org/wiki/File:Mountains_of_Kurdistan%27.jpg">“Mountains of Kurdistan”</a> by Khoshhat, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>; <a href="https://www.flickr.com/photos/37325040@N07/5222731724">“Rocket Giotto III”</a> by Kojach, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Akha_Ama_Chiang_Mai_naked_portafilter.jpg">“Akha Ama Chiang Mai naked portafilter”</a> by Takeaway, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>. Via Wikimedia Commons and Flickr.</p>
+</footer>
+
+<script>
+const WA = '9647506000140';
+const S3 = 'https://alshuyukhcofee-images.s3.eu-north-1.amazonaws.com/categories/Coffee/products/';
+const root = document.documentElement;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const store = { set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+
+/* ---------- Words. English is read from the page itself ---------- */
+const T = {
+  en: {
+    heroTag: 'لە ڕۆحی ئیتاڵیاوە بۆ دڵی کوردستان',
+    roast: 'Roast', best: 'Best for', price: 'Price on request', add: 'Add to order',
+    open: 'Open now, until 16:00', closed: 'Closed now. Open Sat–Thu, 9:00–16:00', friday: 'Closed Fridays. Open Sat–Thu, 9:00–16:00',
+    prev: 'Previous', next: 'Next',
+    msgOrder: (n, q, b, g) => `Hi Al Shuyukh${n ? ', this is ' + n : ''}. I would like to order ${q} × ${b}, ${g.toLowerCase()}. What is the price and delivery?`,
+    msgBlend: b => `Hi Al Shuyukh, I would like ${b}. What is the price?`,
+    msgMachine: x => `Hi Al Shuyukh, I would like advice on ${x}.`,
+    msgPos: 'Hi Al Shuyukh, where is the nearest place to buy your coffee?',
+    machine: { rocket: 'a Rocket Milano machine', mahlkonig: 'a Mahlkönig grinder', cafe: 'setting up a café' },
+    brew: {
+      espresso: 'Espresso calls for <b>Intenso</b>, our darkest roast.',
+      milk: 'For milk drinks, take <b>Cremoso Ricco</b>: it keeps its taste through the milk.',
+      moka: 'In a moka pot, <b>Premium Blend</b> is sweet and balanced.',
+      filter: 'For filter, try <b>Single Origin</b>, roasted light, or the everyday Filter Coffee.',
+      turkish: 'In a cezve, our <b>Turkish Coffee</b>, ground as fine as flour.',
+      new: 'Try <b>Agrumi Gusto</b>, bright and citrusy, or the mango Infused.',
+    },
+  },
+  ar: {
+    skip: 'انتقل إلى المحتوى', skipIntro: 'تخطَّ المقدمة',
+    navBlends: 'الخلطات', navRoastery: 'المحمصة', navMachines: 'المكائن', navFind: 'موقعنا',
+    heroTitle: 'بُن الشّيوخ', heroLead: 'قهوة تُحمَّص في أربيل وفق الأسلوب الإيطالي. أول محمصة إيطالية حِرَفية في العراق.', heroTag: 'من روح إيطاليا إلى قلب كوردستان',
+    fStory: 'قصتنا', fBlends: 'ثماني خلطات', fProcess: 'من الحبّة إلى الفنجان', fMachines: 'المكائن', fOrder: 'اطلب',
+    orderBtn: 'اطلب عبر واتساب', frontNote: 'اختر الخلطة ودرجة الطحن، ونردّ عليك عبر واتساب بالسعر.',
+    storyH: 'إيطاليا، محمّصة في أربيل', storyNote: 'من أجود مناشئ القهوة في العالم إلى محمصتنا على طريق أربيل–الموصل، تُختار كل دفعة وتُحمَّص تحت إشراف خبراء قهوة إيطاليين، ثم تُعبّأ بلون خلطتها.',
+    f1: 'الأولى', f1s: 'أول محمصة إيطالية حِرَفية في العراق', f2: 'ثمانية', f2s: 'أنواع من القهوة، من الإسبريسو إلى التركية', f3: 'السبت–الخميس', f3s: 'من 9:00 إلى 16:00 في 32 بارك، أربيل', f4: 'رسالة واحدة', f4s: 'للطلب: نرسل كل الأسعار عبر واتساب',
+    cap1: 'قلعة أربيل، هولير، المدينة التي نحمّص فيها.', cap2: 'بريميوم بلند في كيسه الأزرق.',
+    blendsH: 'الخلطات', blendsSub: 'ثمانية أنواع من القهوة، لكلٍّ منها لون كيسه الخاص. أخبرنا كيف تحضّر قهوتك ونرشدك إلى ما يناسبك.',
+    pickLegend: 'كيف تحضّر قهوتك؟', bEspresso: 'إسبريسو', bMilk: 'مع الحليب', bMoka: 'موكا', bFilter: 'فلتر أو V60', bTurkish: 'تركية، في الدلّة', bNew: 'شيء جديد',
+    pickDefault: 'اختر طريقة، ونُبرز لك الكيس المناسب.',
+    processH: 'من الحبّة إلى الفنجان', processIntro: 'سبع محطات بين شجرة القهوة والفنجان على طاولتك، وما يحدث منها في أربيل.',
+    m1h: 'تبدأ على شجرة', m1p: 'تنضج ثمار الأرابيكا على شجرة القهوة، ونشتري البذور الخضراء من أجود المناشئ في العالم.',
+    m2h: 'ثم تعبر الجبال', m2p: 'تصل القهوة الخضراء إلى كوردستان ثم إلى أربيل، حيث ترتاح قبل التحميص.',
+    m3h: 'تصل تحت القلعة', m3p: 'تقع محمصتنا في 32 بارك على طريق أربيل–الموصل، في مدينة مأهولة منذ آلاف السنين.',
+    m4h: 'نحمّصها على الطريقة الإيطالية', m4p: 'لكل خلطة منحنى تحميص وضعه خبراء قهوة إيطاليون، من تحميص فاتح للفلتر إلى إسبريسو داكن.',
+    m5h: 'في الأسطوانة، دفعة بعد دفعة', m5p: 'تدور الحبوب في أسطوانة ساخنة حتى يعلن المحمّص نهاية التحميص، ثم تبرد سريعاً على الصينية.',
+    m6h: 'تُغلق بلونها', m6p: 'لكل خلطة كيسها الخاص، فتُقرأ الرفوف بنظرة: الأسود لإنتينسو والأزرق لبريميوم.',
+    m7h: 'وتنتهي في فنجانك', m7p: 'في البيت أو في مقهاك أو على ماكينة روكيت نجهّزها لك.',
+    machinesH: 'المكائن والمطاحن', tabCafe: 'للمقاهي',
+    rocketH: 'ماكينات إسبريسو من ميلانو', rocketP: 'نوفّر ماكينات روكيت ميلانو للبيت وللمقاهي، ونساعدك على اختيار ما يناسب عدد الفناجين يومياً.',
+    mahlH: 'مطاحن بجرعة ثابتة', mahlP: 'مطاحن ماهلكونيغ وديتينغ، من E65S بالطحن حسب الوزن للإسبريسو إلى مطاحن متعددة للفلتر والقهوة التركية.',
+    cafeH: 'تفتتح مقهى في كوردستان؟', cafeP: 'اسألنا عن البن والماكينة والمطحنة ومواد التنظيف معاً، ليُجهَّز مقهاك حول قهوة واحدة.',
+    askThis: 'اسأل عن هذا', fullRange: 'تصفّح كل المنتجات',
+    findH: 'زورونا في أربيل', findP: 'المحمصة والمتجر في 32 بارك على طريق أربيل–الموصل، خلف معرض فورد. وتُقدَّم قهوتنا وتُباع أيضاً في أنحاء أربيل: راسلنا لنخبرك بأقرب نقطة بيع إليك.',
+    lAddress: 'العنوان', address: '32 بارك، طريق أربيل–الموصل، خلف معرض فورد، أربيل 44001', lHours: 'ساعات العمل', hours: 'من السبت إلى الخميس، 9:00–16:00. الجمعة عطلة.', lPhone: 'الهاتف',
+    directions: 'احصل على الاتجاهات', nearest: 'أقرب نقطة بيع', mapCap: 'المحمصة على طريق أربيل–الموصل.',
+    orderH: 'اطلب برسالة واحدة', orderP: 'املأ القسيمة لتفتح واتساب وطلبك مكتوب. نردّ عليك بالسعر وموعد التوصيل.', addrShort: '32 بارك، طريق أربيل–الموصل، خلف معرض فورد',
+    phName: 'اسمك', lBlend: 'الخلطة', lGrind: 'درجة الطحن', lQty: 'عدد الأكياس',
+    gWhole: 'حبوب كاملة', gEspresso: 'مطحون للإسبريسو', gMoka: 'مطحون للموكا', gFilter: 'مطحون للفلتر', gTurkish: 'مطحون للقهوة التركية', send: 'أرسل عبر واتساب',
+    statement: 'من روح إيطاليا إلى قلب كوردستان.', erbilNow: 'أربيل، الآن', writeUs: 'راسلنا', ctaWa: 'راسلنا عبر واتساب',
+    roast: 'التحميص', best: 'الأنسب لـ', price: 'السعر عند الطلب', add: 'أضف إلى الطلب',
+    open: 'مفتوح الآن حتى 16:00', closed: 'مغلق الآن. نفتح السبت–الخميس، 9:00–16:00', friday: 'الجمعة عطلة. نفتح السبت–الخميس، 9:00–16:00',
+    prev: 'السابق', next: 'التالي',
+    msgOrder: (n, q, b, g) => `مرحباً بُن الشيوخ${n ? '، معك ' + n : ''}. أودّ طلب ${q} × ${b}، ${g}. كم السعر وموعد التوصيل؟`,
+    msgBlend: b => `مرحباً بُن الشيوخ، أودّ طلب ${b}. كم السعر؟`,
+    msgMachine: x => `مرحباً بُن الشيوخ، أودّ استشارة بخصوص ${x}.`,
+    msgPos: 'مرحباً بُن الشيوخ، أين أقرب مكان لشراء قهوتكم؟',
+    machine: { rocket: 'ماكينة روكيت ميلانو', mahlkonig: 'مطحنة ماهلكونيغ', cafe: 'تجهيز مقهى' },
+    brew: {
+      espresso: 'للإسبريسو اختر <b>إنتينسو</b>، أغمق تحميص لدينا.',
+      milk: 'لمشروبات الحليب اختر <b>كريموسو ريكو</b>: يحافظ على طعمه مع الحليب.',
+      moka: 'في الموكا، <b>بريميوم بلند</b> حلوة ومتوازنة.',
+      filter: 'للفلتر جرّب <b>سينغل أوريجن</b> بتحميصه الفاتح، أو قهوة الفلتر اليومية.',
+      turkish: 'للدلّة، <b>قهوتنا التركية</b> المطحونة كالطحين.',
+      new: 'جرّب <b>أغرومي غوستو</b> المشرقة بنكهة الحمضيات، أو إنفيوزد بالمانجو.',
+    },
+  },
+  ckb: {
+    skip: 'بڕۆ بۆ ناوەڕۆک', skipIntro: 'تێپەڕاندنی پێشەکی',
+    navBlends: 'تێکەڵەکان', navRoastery: 'برژێنگە', navMachines: 'ئامێرەکان', navFind: 'شوێنمان',
+    heroTitle: 'بُن الشّيوخ', heroLead: 'قاوەیەک لە هەولێر بە شێوازی ئیتاڵی دەبرژێندرێت. یەکەم برژێنگەی دەستکردی ئیتاڵی لە عێراق.', heroTag: 'من روح إيطاليا إلى قلب كوردستان',
+    fStory: 'چیرۆکمان', fBlends: 'هەشت تێکەڵە', fProcess: 'لە دەنکەوە بۆ فنجان', fMachines: 'ئامێرەکان', fOrder: 'داواکاری',
+    orderBtn: 'لە واتسئاپ داوا بکە', frontNote: 'تێکەڵە و ئاستی هاڕین هەڵبژێرە، لە واتسئاپ نرخەکەت بۆ دەنێرین.',
+    storyH: 'ئیتاڵیا، لە هەولێر برژاو', storyNote: 'لە باشترین سەرچاوەکانی قاوەی جیهانەوە بۆ برژێنگەکەمان لەسەر ڕێگای هەولێر–موسڵ، هەموو بڕێک بە سەرپەرشتی پسپۆڕانی قاوەی ئیتاڵی هەڵدەبژێردرێت و دەبرژێندرێت، پاشان بە ڕەنگی تێکەڵەکەی پاکەت دەکرێت.',
+    f1: 'یەکەم', f1s: 'یەکەم برژێنگەی دەستکردی ئیتاڵی لە عێراق', f2: 'هەشت', f2s: 'جۆر قاوە، لە ئێسپرێسۆوە تا تورکی', f3: 'شەممە–پێنجشەممە', f3s: 'لە 9:00 تا 16:00 لە 32 پارک، هەولێر', f4: 'یەک نامە', f4s: 'بۆ داواکردن: هەموو نرخێک لە واتسئاپ دەنێرین',
+    cap1: 'قەڵای هەولێر، ئەو شارەی تێیدا دەبرژێنین.', cap2: 'پریمیەم بلێند لە پاکەتە شینەکەیدا.',
+    blendsH: 'تێکەڵەکان', blendsSub: 'هەشت جۆر قاوە، هەریەکەیان بە ڕەنگی پاکەتی خۆی. پێمان بڵێ چۆن قاوە ئامادە دەکەیت، ئێمەش گونجاوترینت پێ دەڵێین.',
+    pickLegend: 'چۆن قاوە ئامادە دەکەیت؟', bEspresso: 'ئێسپرێسۆ', bMilk: 'لەگەڵ شیر', bMoka: 'مۆکا', bFilter: 'فلتەر یان V60', bTurkish: 'تورکی، لە جەزوە', bNew: 'شتێکی نوێ',
+    pickDefault: 'یەکێک هەڵبژێرە، پاکەتە گونجاوەکەت بۆ دیاری دەکەین.',
+    processH: 'لە دەنکەوە بۆ فنجان', processIntro: 'حەوت قۆناغ لە نێوان درەختی قاوە و فنجانەکەی سەر مێزەکەت، و ئەو بەشەی لە هەولێر ڕوودەدات.',
+    m1h: 'لەسەر درەختێک دەست پێدەکات', m1p: 'بەرەکانی ئەرابیکا لەسەر درەختی قاوە پێدەگەن. ئێمە دەنکی سەوز لە باشترین سەرچاوەکانی جیهان دەکڕین.',
+    m2h: 'پاشان چیاکان دەبڕێت', m2p: 'قاوەی سەوز دەگاتە کوردستان و هەولێر، لەوێ پێش برژاندن پشوو دەدات.',
+    m3h: 'دەگاتە ژێر قەڵا', m3p: 'برژێنگەکەمان لە 32 پارک لەسەر ڕێگای هەولێر–موسڵە، لە شارێک کە هەزاران ساڵە ئاوەدانە.',
+    m4h: 'بە شێوازی ئیتاڵی دەیبرژێنین', m4p: 'هەر تێکەڵەیەک هێڵی برژاندنی خۆی هەیە کە لەگەڵ پسپۆڕانی ئیتاڵی دانراوە، لە برژاندنی کاڵی فلتەرەوە تا ئێسپرێسۆی تۆخ.',
+    m5h: 'لە ناو بەرمیلدا، بڕ بە بڕ', m5p: 'دەنکەکان لە بەرمیلێکی گەرمدا دەسوڕێنەوە تا برژێنەر کۆتایی برژاندن ڕادەگەیەنێت، پاشان بە خێرایی لەسەر سینییەکە سارد دەبنەوە.',
+    m6h: 'بە ڕەنگی خۆی دادەخرێت', m6p: 'هەر تێکەڵەیەک پاکەتی خۆی هەیە، بۆیە بە یەک سەیرکردن دەناسرێتەوە: ڕەش بۆ ئینتێنسۆ، شین بۆ پریمیەم.',
+    m7h: 'و لە فنجانەکەتدا کۆتایی دێت', m7p: 'لە ماڵەوە، لە کافێکەت، یان لەسەر ئامێرێکی ڕۆکێت کە بۆتی دادەمەزرێنین.',
+    machinesH: 'ئامێر و هاڕەکان', tabCafe: 'بۆ کافێکان',
+    rocketH: 'ئامێری ئێسپرێسۆ لە میلانۆوە', rocketP: 'ئامێرەکانی ڕۆکێت میلانۆمان هەیە بۆ ماڵ و کافێ، و یارمەتیت دەدەین ئەوە هەڵبژێریت کە لەگەڵ ژمارەی فنجانەکانی ڕۆژانەت دەگونجێت.',
+    mahlH: 'هاڕەری وردکار', mahlP: 'هاڕەرەکانی ماهلکۆنیگ و دیتینگ، لە E65S بە کێش بۆ ئێسپرێسۆ تا هاڕەری گشتی بۆ فلتەر و قاوەی تورکی.',
+    cafeH: 'کافێیەک لە کوردستان دەکەیتەوە؟', cafeP: 'پرسیارمان لێ بکە دەربارەی قاوە، ئامێر، هاڕەر و کەرەستەی پاککردنەوە پێکەوە، تا کافێکەت لە دەوری یەک قاوە ڕێک بخرێت.',
+    askThis: 'پرسیار بکە', fullRange: 'هەموو بەرهەمەکان ببینە',
+    findH: 'لە هەولێر سەردانمان بکە', findP: 'برژێنگە و فرۆشگاکە لە 32 پارک لەسەر ڕێگای هەولێر–موسڵە، لە پشت پیشانگای فۆرد. قاوەکەمان لە شوێنی تری هەولێریش دەفرۆشرێت: نامەمان بۆ بنێرە تا نزیکترین خاڵی فرۆشتنت پێ بڵێین.',
+    lAddress: 'ناونیشان', address: '32 پارک، ڕێگای هەولێر–موسڵ، پشت پیشانگای فۆرد، هەولێر 44001', lHours: 'کاتی کار', hours: 'شەممە تا پێنجشەممە، 9:00–16:00. هەینی داخراوە.', lPhone: 'تەلەفۆن',
+    directions: 'ڕێنمایی ڕێگا', nearest: 'نزیکترین خاڵی فرۆشتن', mapCap: 'برژێنگەکە لەسەر ڕێگای هەولێر–موسڵ.',
+    orderH: 'بە یەک نامە داوا بکە', orderP: 'کوپۆنەکە پڕ بکەرەوە، واتسئاپ بە داواکارییە نووسراوەکەتەوە دەکرێتەوە. نرخ و کاتی گەیاندنت بۆ دەنێرین.', addrShort: '32 پارک، ڕێگای هەولێر–موسڵ، پشت پیشانگای فۆرد',
+    phName: 'ناوت', lBlend: 'تێکەڵە', lGrind: 'ئاستی هاڕین', lQty: 'ژمارەی پاکەت',
+    gWhole: 'دەنکی تەواو', gEspresso: 'هاڕاو بۆ ئێسپرێسۆ', gMoka: 'هاڕاو بۆ مۆکا', gFilter: 'هاڕاو بۆ فلتەر', gTurkish: 'هاڕاو بۆ قاوەی تورکی', send: 'لە واتسئاپ بینێرە',
+    statement: 'لە ڕۆحی ئیتاڵیاوە بۆ دڵی کوردستان.', erbilNow: 'هەولێر، ئێستا', writeUs: 'بۆمان بنووسە', ctaWa: 'لە واتسئاپ نامەمان بۆ بنێرە',
+    roast: 'برژاندن', best: 'باشترین بۆ', price: 'نرخ بە داواکاری', add: 'زیادی بکە بۆ داواکاری',
+    open: 'ئێستا کراوەیە تا 16:00', closed: 'ئێستا داخراوە. شەممە–پێنجشەممە، 9:00–16:00 کراوەیە', friday: 'هەینی داخراوە. شەممە–پێنجشەممە، 9:00–16:00 کراوەیە',
+    prev: 'پێشوو', next: 'دواتر',
+    msgOrder: (n, q, b, g) => `سڵاو بونی شیوخ${n ? '، من ' + n + 'م' : ''}. دەمەوێت ${q} × ${b} داوا بکەم، ${g}. نرخ و کاتی گەیاندن چۆنە؟`,
+    msgBlend: b => `سڵاو بونی شیوخ، ${b}م دەوێت. نرخەکەی چەندە؟`,
+    msgMachine: x => `سڵاو بونی شیوخ، ڕاوێژم دەوێت دەربارەی ${x}.`,
+    msgPos: 'سڵاو بونی شیوخ، نزیکترین شوێن بۆ کڕینی قاوەکەتان لە کوێیە؟',
+    machine: { rocket: 'ئامێری ڕۆکێت میلانۆ', mahlkonig: 'هاڕەری ماهلکۆنیگ', cafe: 'دامەزراندنی کافێ' },
+    brew: {
+      espresso: 'بۆ ئێسپرێسۆ <b>ئینتێنسۆ</b> هەڵبژێرە، تۆخترین برژاندنمان.',
+      milk: 'بۆ خواردنەوەی شیردار <b>کرێمۆسۆ ڕیکۆ</b>: تامەکەی لەگەڵ شیردا دەمێنێتەوە.',
+      moka: 'لە مۆکادا <b>پریمیەم بلێند</b> شیرین و هاوسەنگە.',
+      filter: 'بۆ فلتەر <b>سینگڵ ئۆریجن</b> تاقی بکەرەوە، یان قاوەی فلتەری ڕۆژانە.',
+      turkish: 'بۆ جەزوە، <b>قاوەی تورکی</b>ـمان کە وەک ئارد هاڕاوە.',
+      new: '<b>ئاگرومی گوستۆ</b> تاقی بکەرەوە، گەش و مزرەمەنی، یان ئینفیوزدی مانگۆ.',
+    },
+  },
+};
+
+const BLENDS = [
+  { id: 'intenso', name: 'Intenso', arName: 'إنتينسو', bag: '#1f2733', img: S3 + 'intenso/product-images/image-1784654127176.webp',
+    en: ['Dark roast', 'Espresso, ristretto', 'Our strongest espresso: dark chocolate, roasted nuts and a long finish that stands up to sugar.'],
+    ar: ['تحميص داكن', 'إسبريسو، ريستريتو', 'أقوى إسبريسو لدينا: شوكولاتة داكنة ومكسرات محمّصة ونهاية طويلة تصمد أمام السكر.'],
+    ckb: ['برژاندنی تۆخ', 'ئێسپرێسۆ، ڕیستریتۆ', 'بەهێزترین ئێسپرێسۆمان: چوکلێتی تاریک، چەرەزی برژاو و تامێکی درێژخایەن کە شەکریش لەناوی نابات.'] },
+  { id: 'cremoso', name: 'Cremoso Ricco', arName: 'كريموسو ريكو', bag: '#8f141a', img: S3 + 'cremoso-ricco/product-images/image-1784654391555.webp',
+    en: ['Medium-dark roast', 'Cappuccino, latte, flat white', 'Built for thick crema and milk. Caramel and cocoa that still taste of coffee through a cappuccino.'],
+    ar: ['تحميص متوسط إلى داكن', 'كابتشينو، لاتيه، فلات وايت', 'صُنعت لكريما كثيفة وللحليب. كراميل وكاكاو يبقى طعمهما واضحاً حتى في الكابتشينو.'],
+    ckb: ['برژاندنی مامناوەند بۆ تۆخ', 'کاپوچینۆ، لاتێ، فلات وایت', 'بۆ کرێمای خەست و شیر دروستکراوە. کارامێل و کاکاو کە تامی قاوە لە ناو کاپوچینۆشدا دەپارێزن.'] },
+  { id: 'premium', name: 'Premium Blend', arName: 'بريميوم بلند', bag: '#1e3b8f', img: S3 + 'premium-blend/product-images/image-1784654454131.webp',
+    en: ['Medium roast', 'Moka pot, espresso', 'The house blend. Balanced and sweet, at home in an espresso machine or a moka pot.'],
+    ar: ['تحميص متوسط', 'موكا، إسبريسو', 'خلطة البيت. متوازنة وحلوة، مناسبة لماكينة الإسبريسو أو الموكا.'],
+    ckb: ['برژاندنی مامناوەند', 'مۆکا، ئێسپرێسۆ', 'تێکەڵەی سەرەکی ماڵەکەمان. هاوسەنگ و شیرین، گونجاو بۆ ئامێری ئێسپرێسۆ یان مۆکا.'] },
+  { id: 'agrumi', name: 'Agrumi Gusto', arName: 'أغرومي غوستو', bag: '#c99a2e', img: S3 + 'agrumi-gusto/product-images/image-1784550557538.webp',
+    en: ['Medium-light roast', 'Espresso, filter', 'Agrumi is Italian for citrus. A bright, lively cup with orange-peel acidity and a clean finish.'],
+    ar: ['تحميص متوسط إلى فاتح', 'إسبريسو، فلتر', 'أغرومي تعني الحمضيات بالإيطالية. فنجان مشرق وحيوي بحموضة قشر البرتقال ونهاية نظيفة.'],
+    ckb: ['برژاندنی مامناوەند بۆ کاڵ', 'ئێسپرێسۆ، فلتەر', 'ئاگرومی بە ئیتاڵی واتە مزرەمەنی. فنجانێکی گەش و زیندوو بە ترشێتی توێکڵی پرتەقاڵ و کۆتاییەکی پاک.'] },
+  { id: 'single', name: 'Single Origin', arName: 'سينغل أوريجن', bag: '#9a6a4a', img: S3 + 'single-origin/product-images/image-1784802335632.webp',
+    en: ['Light roast', 'Filter, V60, AeroPress', 'One farm, one harvest, roasted light so you taste where it grew. The origin changes with the season.'],
+    ar: ['تحميص فاتح', 'فلتر، V60، إيروبريس', 'مزرعة واحدة وحصاد واحد، يُحمَّص فاتحاً لتتذوّق المكان الذي نما فيه. يتغيّر المنشأ مع الموسم.'],
+    ckb: ['برژاندنی کاڵ', 'فلتەر، V60، ئێرۆپرێس', 'یەک کێڵگە، یەک بەرهەم، بە کاڵی دەبرژێندرێت تا تامی شوێنی ڕوانەکەی بکەیت. سەرچاوەکە بەپێی وەرز دەگۆڕێت.'] },
+  { id: 'infused', name: 'Infused', arName: 'إنفيوزد', bag: '#c9762a', img: S3 + 'Infused-coffee/variants/250g-mango/image-1784802046710.webp',
+    en: ['Medium roast, flavoured', 'Iced coffee, filter', 'Coffee infused with fruit, starting with mango. For iced drinks and for anyone who wants something new.'],
+    ar: ['تحميص متوسط، منكّه', 'قهوة مثلجة، فلتر', 'قهوة منقوعة بالفاكهة، بدءاً بالمانجو. للمشروبات المثلجة ولمن يريد شيئاً جديداً.'],
+    ckb: ['برژاندنی مامناوەند، بە تام', 'قاوەی سارد، فلتەر', 'قاوەی تێکەڵ بە میوە، بە مانگۆ دەست پێدەکات. بۆ خواردنەوەی سارد و بۆ ئەوانەی شتێکی نوێیان دەوێت.'] },
+  { id: 'turkish', name: 'Turkish Coffee', arName: 'قهوة تركية', bag: '#4a2c1e', img: null,
+    en: ['Medium roast, powder fine', 'Cezve, ibrik', 'Ground as fine as flour for the cezve. Ask for it plain or with cardamom.'],
+    ar: ['تحميص متوسط، مطحون ناعم جداً', 'دلّة، ركوة', 'مطحونة ناعمة كالطحين للدلّة. اطلبها سادة أو بالهيل.'],
+    ckb: ['برژاندنی مامناوەند، وەک ئارد هاڕاو', 'جەزوە', 'وەک ئارد ورد هاڕاوە بۆ جەزوە. بە ساکاری یان لەگەڵ هێل داوای بکە.'] },
+  { id: 'filter', name: 'Filter Coffee', arName: 'قهوة فلتر', bag: '#2f4a3a', img: null,
+    en: ['Medium-light roast', 'Drip machine, V60, Chemex', 'An everyday filter roast: sweet, clean and easy to brew by the jug for the office or the family.'],
+    ar: ['تحميص متوسط إلى فاتح', 'ماكينة تقطير، V60، كيمكس', 'تحميص يومي للفلتر: حلو ونظيف وسهل التحضير بالإبريق للمكتب أو للعائلة.'],
+    ckb: ['برژاندنی مامناوەند بۆ کاڵ', 'ئامێری دڵۆپە، V60، کێمێکس', 'برژاندنێکی ڕۆژانەی فلتەر: شیرین، پاک و ئاسان بۆ ئامادەکردن بۆ نووسینگە یان خێزان.'] },
+];
+const BREW_TO = { espresso: 'intenso', milk: 'cremoso', moka: 'premium', filter: 'single', turkish: 'turkish', new: 'agrumi' };
+const BREW_GRIND = { espresso: 'espresso', milk: 'espresso', moka: 'moka', filter: 'filter', turkish: 'turkish', new: 'whole' };
+
+let lang = root.lang === 'ar' || root.lang === 'ckb' ? root.lang : 'en';
+const t = k => (T[lang][k] !== undefined ? T[lang][k] : T.en[k]);
+const waLink = msg => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+
+document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (T.en[k] === undefined) T.en[k] = el.textContent; });
+document.querySelectorAll('[data-i18n-ph]').forEach(el => { T.en[el.dataset.i18nPh] = el.placeholder; });
+
+/* ---------- Entrances ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+/* ---------- The shelf ---------- */
+function bagSVG(b) {
+  return `<svg viewBox="0 0 400 500" role="img" aria-label="${b.name}"><rect width="400" height="500" fill="#2a2019"/>
+  <path d="M110 70h180l14 360H96z" fill="${b.bag}"/><path d="M110 70h180v28H110z" fill="#000" opacity=".25"/>
+  <g transform="translate(166 150) scale(1.5)"><use href="#i-canopy"/></g>
+  <text x="200" y="262" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="26" fill="#e2bf6d">${b.name}</text>
+  <rect x="104" y="300" width="192" height="44" fill="#d1a548"/><rect x="104" y="300" width="192" height="44" fill="url(#dia-${b.id})"/>
+  <defs><pattern id="dia-${b.id}" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M11 2l9 9-9 9-9-9z" fill="${b.bag}" opacity=".6"/></pattern></defs></svg>`;
+}
+const shelf = document.getElementById('shelf');
+const blendSelect = document.getElementById('f-blend');
+const answer = document.getElementById('answer');
+function renderShelf(shown) {
+  shelf.innerHTML = BLENDS.map(b => {
+    const [roast, best, note] = b[lang];
+    return `<li class="bag${shown ? ' is-in' : ''}" id="bag-${b.id}" data-id="${b.id}" data-img>
+      <div class="pic">${b.img ? `<img src="${b.img}" alt="${b.name} bag" loading="lazy" width="1023" height="1537">` : bagSVG(b)}<span class="bag__swatch" style="--bag:${b.bag}"></span></div>
+      <div class="bag__name"><h3 dir="ltr">${b.name}</h3><span class="ar-name" lang="ar">${b.arName}</span></div>
+      <p>${note}</p>
+      <p class="bag__meta">${t('roast')}: ${roast} · ${t('best')}: ${best}</p>
+      <div class="bag__foot"><a class="bag__price" href="${waLink(t('msgBlend')(b.name))}">${t('price')}</a><button type="button" class="bag__add" data-add="${b.id}">${t('add')}</button></div>
+    </li>`;
+  }).join('');
+  const keep = blendSelect.value;
+  blendSelect.innerHTML = '';
+  BLENDS.forEach(b => blendSelect.add(new Option(b.name, b.name)));
+  if (keep) blendSelect.value = keep;
+  if (!shown) shelf.querySelectorAll('[data-img]').forEach(el => io.observe(el));
+  const checked = document.querySelector('input[name="brew"]:checked');
+  if (checked) markMatch(BREW_TO[checked.value]);
+}
+function markMatch(id) {
+  shelf.classList.add('has-match');
+  shelf.querySelectorAll('.bag').forEach(b => b.classList.toggle('is-match', b.dataset.id === id));
+}
+shelf.addEventListener('click', e => {
+  const btn = e.target.closest('[data-add]');
+  if (!btn) return;
+  blendSelect.value = BLENDS.find(b => b.id === btn.dataset.add).name;
+  document.getElementById('order').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  const c = document.getElementById('coupon');
+  c.classList.remove('is-flash'); void c.offsetWidth; c.classList.add('is-flash');
+});
+
+/* ---------- The live thing: how do you brew? ---------- */
+document.querySelectorAll('input[name="brew"]').forEach(r => r.addEventListener('change', () => {
+  const id = BREW_TO[r.value];
+  answer.innerHTML = t('brew')[r.value];
+  markMatch(id);
+  blendSelect.value = BLENDS.find(b => b.id === id).name;
+  document.getElementById('f-grind').value = BREW_GRIND[r.value];
+  const card = document.getElementById('bag-' + id).getBoundingClientRect();
+  if (card.top < 0 || card.bottom > innerHeight) document.getElementById('bag-' + id).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+}));
+
+/* ---------- Order coupon ---------- */
+document.getElementById('coupon').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target;
+  const grind = f.grind.options[f.grind.selectedIndex].text;
+  window.open(waLink(t('msgOrder')(f.name.value.trim(), f.qty.value || 1, f.blend.value, grind)), '_blank', 'noopener');
+});
+
+/* ---------- Bean to cup row ---------- */
+const row = document.getElementById('row');
+const bar = document.getElementById('progress');
+function updateProgress() {
+  const max = row.scrollWidth - row.clientWidth;
+  const view = row.clientWidth / row.scrollWidth;
+  bar.style.width = (view + (1 - view) * (max ? Math.abs(row.scrollLeft) / max : 0)) * 100 + '%';
+}
+row.addEventListener('scroll', updateProgress, { passive: true });
+addEventListener('resize', updateProgress);
+const stepW = () => (row.querySelector('.moment').offsetWidth + 32) * (root.dir === 'rtl' ? -1 : 1);
+document.getElementById('next').addEventListener('click', () => row.scrollBy({ left: stepW(), behavior: 'smooth' }));
+document.getElementById('prev').addEventListener('click', () => row.scrollBy({ left: -stepW(), behavior: 'smooth' }));
+let drag = null;
+row.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; drag = { x: e.clientX, s: row.scrollLeft }; row.classList.add('is-dragging'); });
+addEventListener('pointermove', e => { if (drag) row.scrollLeft = drag.s - (e.clientX - drag.x); });
+addEventListener('pointerup', () => { if (drag) { drag = null; row.classList.remove('is-dragging'); } });
+
+/* ---------- Machines ---------- */
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+function selectTab(tab) {
+  tabs.forEach(x => { const on = x === tab; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+  const key = tab.id.replace('tab-', '');
+  document.querySelectorAll('#plate-pic img').forEach(i => i.classList.toggle('is-off', i.dataset.for !== key));
+  document.getElementById('machine-ask').href = waLink(t('msgMachine')(t('machine')[key]));
+}
+tabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => selectTab(tab));
+  tab.addEventListener('keydown', e => {
+    let k = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+    if (!k) return;
+    if (root.dir === 'rtl') k = -k;
+    const n = tabs[(i + k + tabs.length) % tabs.length]; n.focus(); selectTab(n);
+  });
+});
+
+/* ---------- Erbil clock ---------- */
+function tick() {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Baghdad', hour: '2-digit', minute: '2-digit', weekday: 'short', hour12: false }).formatToParts(new Date()).map(p => [p.type, p.value]));
+  document.getElementById('clock').textContent = `${parts.hour}:${parts.minute}`;
+  const h = +parts.hour, fri = parts.weekday === 'Fri';
+  document.getElementById('open-state').textContent = !fri && h >= 9 && h < 16 ? t('open') : (fri ? t('friday') : t('closed'));
+}
+setInterval(tick, 30000);
+
+/* ---------- Headlines rise line by line ---------- */
+function split(el) {
+  const text = el.textContent.trim();
+  el.setAttribute('aria-label', text);
+  el.innerHTML = text.split(/\s+/).map(w => `<span class="ln" aria-hidden="true"><span>${w}</span></span>`).join(' ');
+  let line = -1, top = null;
+  el.querySelectorAll('.ln').forEach(w => { if (w.offsetTop !== top) { top = w.offsetTop; line++; } w.firstChild.style.setProperty('--l', line); });
+}
+
+/* ---------- Colour field follows the section in view ---------- */
+const field = document.getElementById('field');
+const zoneIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) field.style.backgroundColor = e.target.dataset.bg; }), { rootMargin: '-50% 0px -50% 0px' });
+document.querySelectorAll('[data-bg]').forEach(z => zoneIO.observe(z));
+
+/* ---------- Folders open into their sections ---------- */
+function unfold(target, folder) {
+  if (reduce) { target.scrollIntoView(); return; }
+  const r = folder.getBoundingClientRect();
+  const colour = getComputedStyle(folder).backgroundColor;
+  const sheet = document.createElement('div');
+  sheet.className = 'unfold';
+  sheet.style.background = colour;
+  sheet.style.clipPath = `inset(${Math.max(0, r.top - 40)}px ${Math.max(0, innerWidth - r.right)}px 0px ${Math.max(0, r.left)}px)`;
+  document.body.appendChild(sheet);
+  sheet.getBoundingClientRect();
+  sheet.style.clipPath = 'inset(0px 0px 0px 0px)';
+  setTimeout(() => {
+    field.style.transition = 'none';
+    field.style.backgroundColor = target.dataset.bg || colour;
+    target.scrollIntoView({ behavior: 'instant' });
+    field.getBoundingClientRect();
+    field.style.transition = '';
+    target.querySelectorAll('[data-split], [data-reveal], [data-img]').forEach(el => el.classList.add('is-in'));
+    sheet.style.opacity = '0';
+    setTimeout(() => sheet.remove(), 500);
+  }, 760);
+}
+document.querySelectorAll('.stack a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const target = document.querySelector(a.getAttribute('href'));
+  if (!target) return;
+  e.preventDefault();
+  unfold(target, a.closest('.folder'));
+}));
+document.querySelectorAll('.topbar a[href^="#"], .t-nav a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const target = document.querySelector(a.getAttribute('href'));
+  if (!target) return;
+  e.preventDefault();
+  target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+}));
+
+/* ---------- Language ---------- */
+function applyLang(next, shown) {
+  lang = next;
+  root.lang = next;
+  root.dir = next === 'en' ? 'ltr' : 'rtl';
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelector('.hero__tag').setAttribute('lang', next === 'en' ? 'ckb' : 'ar');
+  document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === next));
+  document.getElementById('prev').setAttribute('aria-label', t('prev'));
+  document.getElementById('next').setAttribute('aria-label', t('next'));
+  document.getElementById('pos-ask').href = waLink(t('msgPos'));
+  const checked = document.querySelector('input[name="brew"]:checked');
+  answer.innerHTML = checked ? t('brew')[checked.value] : t('pickDefault');
+  renderShelf(shown);
+  selectTab(tabs.find(x => x.getAttribute('aria-selected') === 'true'));
+  tick();
+  document.querySelectorAll('[data-split]').forEach(el => split(el));
+  row.scrollLeft = 0;
+  updateProgress();
+}
+document.querySelectorAll('.langs button').forEach(b => b.addEventListener('click', () => {
+  if (b.dataset.lang === lang) return;
+  store.set('lang', b.dataset.lang);
+  if (reduce) { applyLang(b.dataset.lang, true); return; }
+  document.body.style.opacity = '0';
+  setTimeout(() => { applyLang(b.dataset.lang, true); document.body.style.opacity = '1'; }, 230);
+}));
+
+/* ---------- Start ---------- */
+applyLang(lang, false);
+document.querySelectorAll('[data-reveal], [data-split], [data-img]').forEach(el => io.observe(el));
+document.fonts && document.fonts.ready.then(() => document.querySelectorAll('[data-split]').forEach(el => {
+  const was = el.classList.contains('is-in'); split(el); if (was) el.classList.add('is-in');
+}));
+
+// Opening sequence
+const curtain = document.getElementById('curtain');
+function endIntro() {
+  if (!root.classList.contains('intro')) return;
+  try { sessionStorage.setItem('intro', '1'); } catch (e) {}
+  curtain.classList.add('is-done');
+  setTimeout(() => { root.classList.remove('intro'); root.classList.add('no-intro'); }, 600);
+}
+if (root.classList.contains('intro')) {
+  setTimeout(endIntro, 4000);
+  document.getElementById('skip-intro').addEventListener('click', endIntro);
+  addEventListener('keydown', e => { if (e.key === 'Escape') endIntro(); }, { once: true });
+}
+
+if (reduce) document.querySelectorAll('video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+</script>
+</body>
+</html>
