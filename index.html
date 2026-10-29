@@ -143,7 +143,11 @@ p { margin: 0; }
 @keyframes lift { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
 
 /* ---------- Scroll colour field ---------- */
-.field { position: fixed; inset: 0; z-index: -1; background: var(--ground); transition: background-color 900ms ease; }
+/* Dark smoky ground with a soft glow in the colour of the section in view */
+.field { --zone: #4a3422; position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #0d0a08; }
+.field::before, .field::after { content: ""; position: absolute; border-radius: 50%; background: var(--zone); filter: blur(130px); transition: background-color 1100ms ease; }
+.field::before { width: 75vw; height: 75vw; left: -22vw; top: -28vw; opacity: .5; }
+.field::after { width: 58vw; height: 58vw; right: -18vw; bottom: -24vw; opacity: .32; }
 .js main > section { background: transparent !important; }
 .js body { background: transparent; }
 html.js { background: var(--ground); }
@@ -393,7 +397,7 @@ figcaption { margin-top: 12px; font-size: var(--step-small); }
 .find__map iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(.8) sepia(.25) brightness(.92) contrast(1.05); }
 
 /* Order coupon */
-.order { padding: var(--gap-section) var(--margin); background: var(--ground); }
+.order { padding: var(--gap-section) var(--margin); }
 .coupon {
   --notch: 14px; --cut: 46%;
   position: relative; width: min(100%, 1180px); margin: 0 auto;
@@ -428,7 +432,7 @@ figcaption { margin-top: 12px; font-size: var(--step-small); }
 .submit svg { width: 22px; height: 22px; }
 
 /* Footer */
-footer { padding: 0 10px 10px; background: var(--ground); position: relative; }
+footer { padding: 0 10px 10px; position: relative; }
 footer .band { margin: 0 -10px 10px; }
 .tiles { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 8px; }
 .tile { background: var(--ground-2); padding: 24px; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; }
@@ -494,7 +498,7 @@ body { transition: opacity 220ms ease; }
   .js [data-reveal], .js [data-split] .ln > span, .js [data-img] .pic, .js [data-img] .pic > * { opacity: 1; transform: none; clip-path: none; transition: none; }
   .js .folder { animation: none; }
   .js .band[data-reveal] { transform: none; }
-  .field { transition: none; }
+  .field::before, .field::after { transition: none; }
   * { transition-duration: 1ms !important; animation-duration: 1ms !important; }
 }
 
@@ -619,7 +623,7 @@ body { transition: opacity 220ms ease; }
   <button type="button" id="skip-intro" data-i18n="skipIntro">Skip intro</button>
 </div>
 
-<header class="hero" id="top" data-bg="#15100c">
+<header class="hero" id="top" data-bg="#4a3422">
   <div class="hero__film">
     <video autoplay muted loop playsinline preload="auto" poster="assets/kaffe-ystad-2024-poster.jpg" width="854" height="480" aria-hidden="true"><source src="assets/kaffe-ystad-2024.webm" type="video/webm"></video>
   </div>
@@ -668,7 +672,7 @@ body { transition: opacity 220ms ease; }
 
 <main id="main">
 
-  <section class="story" id="story" aria-labelledby="story-h" data-bg="#7d4b31">
+  <section class="story" id="story" aria-labelledby="story-h" data-bg="#a8653f">
     <div class="band" data-reveal></div>
     <div class="wrap">
       <div class="grid">
@@ -694,7 +698,7 @@ body { transition: opacity 220ms ease; }
     </div>
   </section>
 
-  <section class="blends" id="blends" aria-labelledby="blends-h" data-bg="#1c2533">
+  <section class="blends" id="blends" aria-labelledby="blends-h" data-bg="#3a5592">
     <div class="wrap">
       <div class="grid blends__top">
         <div class="blends__head">
@@ -718,7 +722,7 @@ body { transition: opacity 220ms ease; }
     </div>
   </section>
 
-  <section class="process" id="roastery" aria-labelledby="roastery-h" data-bg="#8f141a">
+  <section class="process" id="roastery" aria-labelledby="roastery-h" data-bg="#a81e28">
     <div class="wrap">
       <div class="process__top">
         <div>
@@ -778,7 +782,7 @@ body { transition: opacity 220ms ease; }
     </div>
   </section>
 
-  <section class="machines" id="machines" aria-labelledby="machines-h" data-bg="#1e3b8f">
+  <section class="machines" id="machines" aria-labelledby="machines-h" data-bg="#2c56c4">
     <div class="plate" data-img>
       <div class="plate__pic pic" id="plate-pic">
         <img src="assets/rocket-giotto-iii.jpg" width="1024" height="683" alt="A polished Rocket Giotto espresso machine, made in Italy" data-for="rocket" loading="lazy">
@@ -816,7 +820,7 @@ body { transition: opacity 220ms ease; }
     </div>
   </section>
 
-  <section class="find" id="find" aria-labelledby="find-h" data-bg="#211812">
+  <section class="find" id="find" aria-labelledby="find-h" data-bg="#6e4b2b">
     <div class="wrap grid find__grid">
       <div class="find__text">
         <h2 id="find-h" data-split data-i18n="findH">Find us in Erbil</h2>
@@ -838,7 +842,7 @@ body { transition: opacity 220ms ease; }
     </div>
   </section>
 
-  <section class="order" id="order" aria-labelledby="order-h" data-bg="#15100c">
+  <section class="order" id="order" aria-labelledby="order-h" data-bg="#8a6a26">
     <form class="coupon" id="coupon" data-reveal>
       <div class="coupon__left">
         <h2 id="order-h" data-i18n="orderH">Order in one message</h2>
@@ -881,7 +885,7 @@ body { transition: opacity 220ms ease; }
 
 </main>
 
-<footer data-bg="#15100c">
+<footer data-bg="#4a3422">
   <div class="band" data-reveal></div>
   <div class="tiles">
     <div class="tile t-state">
@@ -1214,7 +1218,7 @@ function split(el) {
 
 /* ---------- Colour field follows the section in view ---------- */
 const field = document.getElementById('field');
-const zoneIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) field.style.backgroundColor = e.target.dataset.bg; }), { rootMargin: '-50% 0px -50% 0px' });
+const zoneIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) field.style.setProperty('--zone', e.target.dataset.bg); }), { rootMargin: '-50% 0px -50% 0px' });
 document.querySelectorAll('[data-bg]').forEach(z => zoneIO.observe(z));
 
 /* ---------- Folders open into their sections ---------- */
@@ -1224,14 +1228,14 @@ function unfold(target, folder) {
   const colour = folder.style.getPropertyValue('--c') || getComputedStyle(folder).backgroundColor;
   const sheet = document.createElement('div');
   sheet.className = 'unfold';
-  sheet.style.background = colour;
+  sheet.style.background = 'radial-gradient(80% 90% at 15% 0%, color-mix(in srgb, ' + colour + ' 60%, transparent), transparent 70%), #0d0a08';
   sheet.style.clipPath = `inset(${Math.max(0, r.top - 40)}px ${Math.max(0, innerWidth - r.right)}px 0px ${Math.max(0, r.left)}px)`;
   document.body.appendChild(sheet);
   sheet.getBoundingClientRect();
   sheet.style.clipPath = 'inset(0px 0px 0px 0px)';
   setTimeout(() => {
     field.style.transition = 'none';
-    field.style.backgroundColor = target.dataset.bg || colour;
+    field.style.setProperty('--zone', target.dataset.bg || colour);
     target.scrollIntoView({ behavior: 'instant' });
     field.getBoundingClientRect();
     field.style.transition = '';
