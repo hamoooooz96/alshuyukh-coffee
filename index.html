@@ -55,8 +55,6 @@
   --ease-out: cubic-bezier(.2, .7, .2, 1);
   --ease-io: cubic-bezier(.7, 0, .2, 1);
 
-  /* The diamond lattice from the bags and the citadel's brickwork */
-  --lattice: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M14 3l11 11-11 11L3 14z' fill='%23d1a548'/%3E%3Cpath d='M14 9l5 5-5 5-5-5z' fill='%2315100c'/%3E%3C/svg%3E");
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -108,11 +106,6 @@ p { margin: 0; }
 .logo { display: block; position: relative; overflow: hidden; aspect-ratio: 1576 / 1356; }
 .logo img { position: absolute; max-width: none; width: 152.3%; height: auto; left: -26.14%; top: -41%; }
 
-/* Lattice band */
-.band { height: 28px; background: var(--lattice) center / 28px 28px repeat-x; }
-.js .band[data-reveal] { transform: scaleX(0); opacity: 1; transition: transform 1400ms var(--ease-io); }
-.js .band[data-reveal].is-in { transform: scaleX(1); }
-
 /* ---------- Opening sequence ---------- */
 .curtain { display: none; }
 .intro .curtain {
@@ -153,7 +146,7 @@ p { margin: 0; }
 html.js { background: var(--ground); }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; min-height: max(100svh, 760px); overflow: hidden; background: var(--ground); isolation: isolate; }
+.hero { --fade: 120px; position: relative; min-height: calc(max(100svh, 760px) + var(--fade)); overflow: hidden; background: var(--ground); isolation: isolate; -webkit-mask-image: linear-gradient(#000 calc(100% - var(--fade)), transparent); mask-image: linear-gradient(#000 calc(100% - var(--fade)), transparent); }
 .hero__film { position: absolute; inset: 0; z-index: -1; }
 .hero__film video { width: 100%; height: 100%; object-fit: cover; }
 .hero__film::after { content: ""; position: absolute; inset: 0; background: rgba(14, 11, 9, .72); }
@@ -186,7 +179,7 @@ html.js { background: var(--ground); }
 .hero__lead { max-width: 44ch; margin: 28px auto 0; font-size: var(--step-lead); line-height: 1.4; }
 .hero__tag { margin-top: 14px; font-family: var(--ruqaa); font-weight: 700; font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem); color: var(--gold-2); line-height: 1.6; }
 
-.stack { --offset: clamp(56px, 7.2vh, 72px); --gap: 9px; position: absolute; left: 6%; right: 6%; top: max(55%, 460px); bottom: 0; }
+.stack { --offset: clamp(56px, 7.2vh, 72px); --gap: 9px; position: absolute; left: 6%; right: 6%; top: max(55svh, 460px); bottom: 0; }
 /* Dark smoky glass: faint tint, thin glowing edge in the bag colour, a soft glow in one corner */
 .folder {
   --edge: color-mix(in srgb, var(--c) 70%, #fff 12%);
@@ -250,8 +243,7 @@ main > section { position: relative; }
 figcaption { margin-top: 12px; font-size: var(--step-small); }
 
 /* Story */
-.story { background: var(--copper); padding: 0 0 var(--gap-section); }
-.story .band { margin-bottom: clamp(96px, 10vw, 150px); }
+.story { background: var(--copper); padding: clamp(48px, 6vw, 96px) 0 var(--gap-section); }
 .story h2 { grid-column: 1 / 7; font-size: var(--step-head); align-self: end; }
 .story__note { grid-column: 9 / 13; align-self: end; }
 .facts { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin: 112px 0 0; list-style: none; padding: 0; }
@@ -432,8 +424,7 @@ figcaption { margin-top: 12px; font-size: var(--step-small); }
 .submit svg { width: 22px; height: 22px; }
 
 /* Footer */
-footer { padding: 0 10px 10px; position: relative; }
-footer .band { margin: 0 -10px 10px; }
+footer { padding: 10px; position: relative; }
 .tiles { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 8px; }
 .tile { background: var(--ground-2); padding: 24px; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; }
 .t-state { grid-column: 1 / 5; }
@@ -497,7 +488,6 @@ body { transition: opacity 220ms ease; }
 @media (prefers-reduced-motion: reduce) {
   .js [data-reveal], .js [data-split] .ln > span, .js [data-img] .pic, .js [data-img] .pic > * { opacity: 1; transform: none; clip-path: none; transition: none; }
   .js .folder { animation: none; }
-  .js .band[data-reveal] { transform: none; }
   .field::before, .field::after { transition: none; }
   * { transition-duration: 1ms !important; animation-duration: 1ms !important; }
 }
@@ -534,12 +524,12 @@ body { transition: opacity 220ms ease; }
   .topbar .logo { width: 60px; }
   .topbar__end { gap: 10px; }
   .topbar__end > a span { display: none; }
-  .hero { min-height: max(100svh, 700px); }
+  .hero { min-height: calc(max(100svh, 700px) + var(--fade)); }
   .hero__head { padding-top: 56px; }
   .hero h1 { font-size: 17vw; }
   [dir="rtl"] .hero h1 { font-size: 16vw; }
   .hero__lead { font-size: 1.0625rem; margin-top: 20px; }
-  .stack { --offset: 58px; --gap: 8px; left: 12px; right: 12px; top: max(57%, 430px); }
+  .stack { --offset: 58px; --gap: 8px; left: 12px; right: 12px; top: max(57svh, 430px); }
   .folder { border-radius: 16px; padding-inline: 8px; gap: 10px; }
   .folder__num { display: none; }
   .folder__tab { margin-inline-start: calc(var(--i) * 14px); height: 36px; padding: 0 16px; gap: 8px; }
@@ -586,8 +576,7 @@ body { transition: opacity 220ms ease; }
   .coupon__left, .coupon__right { padding: 28px 20px; }
   .two { grid-template-columns: 1fr; }
 
-  footer { padding: 0 6px 6px; }
-  footer .band { margin: 0 -6px 6px; }
+  footer { padding: 6px; }
   .tiles { grid-template-columns: 1fr 1fr; gap: 6px; }
   .tile { padding: 20px; min-height: 180px; }
   .t-word { order: -2; grid-column: 1 / -1; min-height: 200px; }
@@ -673,7 +662,6 @@ body { transition: opacity 220ms ease; }
 <main id="main">
 
   <section class="story" id="story" aria-labelledby="story-h" data-bg="#a8653f">
-    <div class="band" data-reveal></div>
     <div class="wrap">
       <div class="grid">
         <h2 id="story-h" data-split data-i18n="storyH">Italy, roasted in Erbil</h2>
@@ -887,7 +875,6 @@ body { transition: opacity 220ms ease; }
 </main>
 
 <footer data-bg="#4a3422">
-  <div class="band" data-reveal></div>
   <div class="tiles">
     <div class="tile t-state">
       <p data-i18n="statement">From the soul of Italy to the heart of Kurdistan.</p>
