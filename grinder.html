@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahlkönig EK43 — Al Shuyukh Coffee</title>
+<meta name="description" content="The Mahlkönig EK43 grinder, available in Erbil from Al Shuyukh Coffee.">
+<meta name="theme-color" content="#0d0a08">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Manrope:wght@400;500;600&family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var d = document.documentElement, lang = null;
+    try { lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('lang'); } catch (e) {}
+    if (lang === 'ar' || lang === 'ckb') { d.lang = lang; d.dir = 'rtl'; }
+    d.classList.add('js');
+  })();
+</script>
+<style>
+/*
+  Product page template. To make a page for another product, copy this file and
+  change only the PRODUCT object in the script at the bottom: names, photos,
+  features, callouts, specs and the "more" list. The layout builds itself from it.
+*/
+:root {
+  --ground: #0d0a08;
+  --ink: #f1ede6;
+  --soft: #b9ae9f;
+  --accent: #d1a548;
+  --accent-2: #e2bf6d;
+  --edge: rgba(209, 165, 72, .38);
+  --glow: rgba(209, 165, 72, .22);
+  --plate-1: #f2f0ec;
+  --plate-2: #cfcac2;
+
+  --display: "Unbounded", "Manrope", sans-serif;
+  --text: "Manrope", system-ui, sans-serif;
+  --arabic: "Vazirmatn", system-ui, sans-serif;
+
+  --margin: clamp(16px, 3vw, 48px);
+  --gap: clamp(96px, 12vw, 180px);
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--ground); -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: var(--ink); font: 400 clamp(1rem, .96rem + .2vw, 1.125rem)/1.6 var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+[dir="rtl"] body { font-family: var(--arabic); line-height: 1.8; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 500; letter-spacing: -.02em; line-height: 1.02; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { font-family: var(--arabic); font-weight: 800; letter-spacing: 0; line-height: 1.3; }
+p { margin: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { padding-inline: var(--margin); max-width: 1440px; margin-inline: auto; }
+
+/* Smoky ground */
+.smoke { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: var(--ground); }
+.smoke::before, .smoke::after { content: ""; position: absolute; border-radius: 50%; filter: blur(140px); }
+.smoke::before { width: 70vw; height: 70vw; left: -20vw; top: -30vw; background: #6b4b25; opacity: .45; }
+.smoke::after { width: 60vw; height: 60vw; right: -22vw; bottom: -26vw; background: #2c3f5c; opacity: .35; }
+
+/* Glass, as in the reference: faint fill, thin bright edge, soft glow in one corner */
+.glass {
+  position: relative; border-radius: 22px;
+  border: 1px solid var(--edge);
+  background: radial-gradient(90% 120% at 0% 0%, var(--glow), transparent 60%), linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.01) 60%), rgba(14, 11, 9, .45); /* taste-skill-ignore: glass */
+  -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 24px 60px rgba(0,0,0,.35);
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px;
+  font: 600 1rem/1 inherit; font-family: inherit; text-decoration: none; cursor: pointer; border: 1px solid var(--edge);
+  transition: background-color 250ms ease, transform 250ms var(--ease), border-color 250ms ease;
+}
+.pill svg { width: 20px; height: 20px; }
+.pill--gold { background: var(--accent); color: #1d1410; border-color: var(--accent); }
+.pill--gold:hover { background: var(--accent-2); transform: translateY(-2px); }
+.pill--ghost { background: rgba(255,255,255,.04); color: var(--ink); }
+.pill--ghost:hover { border-color: var(--accent); background: rgba(209,165,72,.12); }
+.circle { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.03); color: var(--accent-2); cursor: pointer; transition: border-color 250ms ease, background-color 250ms ease; }
+.circle:hover { border-color: var(--accent); background: rgba(209,165,72,.12); }
+.circle svg { width: 18px; height: 18px; }
+[dir="rtl"] .flip svg { transform: scaleX(-1); }
+.label { font: 500 .8125rem/1.3 var(--text); letter-spacing: .14em; text-transform: uppercase; color: var(--soft); }
+[dir="rtl"] .label { font-family: var(--arabic); letter-spacing: 0; font-size: .9375rem; }
+
+/* Studio plate: a soft-lit surface the white product photos melt into */
+.plate { border-radius: 22px; background: radial-gradient(70% 70% at 50% 40%, var(--plate-1), var(--plate-2)); overflow: hidden; position: relative; } /* taste-skill-ignore: studio light */
+.plate img { mix-blend-mode: multiply; filter: brightness(1.13) contrast(1.12); width: 100%; height: 100%; object-fit: contain; }
+
+/* Top bar */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+.top__back { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 600; }
+.top__back .circle { width: 44px; height: 44px; }
+.top__back .circle svg { transform: scaleX(-1); }
+[dir="rtl"] .top__back .circle svg { transform: none; }
+.top__logo { width: 70px; display: block; position: relative; overflow: hidden; aspect-ratio: 1576 / 1356; }
+.top__logo img { position: absolute; max-width: none; width: 152.3%; left: -26.14%; top: -41%; }
+.langs { display: flex; gap: 2px; }
+.langs button { background: none; border: 0; cursor: pointer; color: var(--soft); font: 600 .9375rem/1 var(--text); padding: 10px 8px; }
+.langs button[lang] { font-family: var(--arabic); }
+.langs button[aria-pressed="true"] { color: var(--accent-2); }
+
+/* Hero */
+.hero { position: relative; padding-top: 24px; }
+.hero__meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.hero__meta span:nth-child(2) { text-align: center; } .hero__meta span:nth-child(3) { text-align: center; } .hero__meta span:last-child { text-align: end; }
+.hero__stage { position: relative; display: grid; grid-template-columns: 1fr minmax(280px, 520px) 1fr; align-items: end; gap: clamp(16px, 3vw, 48px); margin-top: 24px; }
+.hero__plate { aspect-ratio: 1 / 1.08; z-index: 2; }
+.hero__plate img { padding: 6% 10% 2%; }
+.hero__side { padding-bottom: 18vh; display: grid; gap: 22px; max-width: 30ch; }
+.hero__side--end { justify-self: end; text-align: end; }
+.hero__side p { color: var(--soft); }
+.hero__side strong { display: block; font: 500 1.125rem/1.3 var(--display); color: var(--ink); }
+[dir="rtl"] .hero__side strong { font-family: var(--arabic); font-weight: 800; }
+.hero h1 {
+  position: relative; z-index: 1;
+  font-size: clamp(6rem, 26vw, 25rem); line-height: .78; letter-spacing: -.05em; text-align: center;
+  margin-top: calc(clamp(6rem, 26vw, 25rem) * -.42);
+  color: var(--ink); white-space: nowrap;
+}
+[dir="rtl"] .hero h1 { font-family: var(--display); font-weight: 500; letter-spacing: -.05em; line-height: .78; }
+.hero__sub { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 28px; }
+.hero__sub .label { color: var(--accent-2); }
+.hero__ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* About */
+.about { margin-top: var(--gap); display: grid; grid-template-columns: 5fr 7fr; gap: clamp(16px, 3vw, 40px); align-items: stretch; }
+.about__plate { aspect-ratio: 4 / 5; }
+.about__plate img { padding: 10%; }
+.about__body { padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+.about h2 { font-size: clamp(2.25rem, 1.4rem + 3.4vw, 4.5rem); }
+.about__text { display: grid; gap: 18px; max-width: 58ch; color: var(--soft); font-size: 1.0625rem; }
+.about__text p:first-child { color: var(--ink); font-size: clamp(1.125rem, 1rem + .5vw, 1.375rem); line-height: 1.5; }
+.about__row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.stat { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.025); }
+.stat b { display: block; font: 500 clamp(1.5rem, 1.2rem + 1vw, 2.125rem)/1 var(--display); color: var(--accent-2); }
+.stat span { display: block; margin-top: 10px; font-size: .9375rem; color: var(--soft); }
+
+/* Section heads with the reference's carousel controls */
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.head h2 { font-size: clamp(2rem, 1.3rem + 2.8vw, 3.75rem); margin-top: 14px; max-width: 18ch; }
+.controls { display: flex; align-items: center; gap: 14px; }
+.controls output { font: 500 .9375rem/1 var(--text); color: var(--soft); min-width: 56px; text-align: center; font-variant-numeric: tabular-nums; }
+
+/* Features: numbered glass cards with an icon circle */
+.features { margin-top: var(--gap); }
+.cards { margin-top: 48px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.card { padding: 26px; min-height: 300px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; transition: transform 400ms var(--ease), border-color 300ms ease; }
+.card:hover { transform: translateY(-4px); border-color: rgba(209,165,72,.65); }
+.card__top { display: flex; justify-content: space-between; align-items: center; }
+.card__num { font: 500 .875rem/1 var(--text); color: var(--soft); letter-spacing: .08em; }
+.card__icon { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.03); color: var(--accent-2); }
+.card__icon svg { width: 22px; height: 22px; }
+.card h3 { font-size: 1.375rem; }
+.card p { margin-top: 12px; color: var(--soft); font-size: 1rem; }
+
+/* Anatomy: the product with labelled parts */
+.anatomy { margin-top: var(--gap); }
+.anatomy__stage { margin-top: 48px; display: grid; grid-template-columns: 1fr minmax(320px, 620px) 1fr; gap: clamp(16px, 3vw, 40px); align-items: center; }
+.anatomy__plate { aspect-ratio: 1666 / 1582; }
+.anatomy__plate img { padding: 4%; }
+.parts { display: grid; gap: 14px; list-style: none; margin: 0; padding: 0; }
+.part { padding: 20px 22px; cursor: default; transition: border-color 300ms ease, transform 400ms var(--ease); }
+.part.is-on { border-color: rgba(209,165,72,.8); transform: translateX(var(--nudge, 6px)); }
+.parts--end .part.is-on { --nudge: -6px; }
+[dir="rtl"] .part.is-on { --nudge: -6px; } [dir="rtl"] .parts--end .part.is-on { --nudge: 6px; }
+.part__name { display: flex; align-items: center; gap: 10px; font: 500 1.0625rem/1.2 var(--display); }
+[dir="rtl"] .part__name { font-family: var(--arabic); font-weight: 800; }
+.part__name i { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font: 600 .75rem/1 var(--text); font-style: normal; background: var(--accent); color: #1d1410; flex: none; }
+.part p { margin-top: 8px; color: var(--soft); font-size: .9375rem; }
+.dot { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #1d1410; font: 600 .8125rem/1 var(--text); box-shadow: 0 0 0 6px rgba(209,165,72,.28); transition: transform 300ms var(--ease), box-shadow 300ms ease; }
+.dot.is-on { transform: scale(1.2); box-shadow: 0 0 0 10px rgba(209,165,72,.32); }
+
+/* Views gallery */
+.views { margin-top: var(--gap); }
+.views__grid { margin-top: 48px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.view { aspect-ratio: 4 / 5; }
+.view img { padding: 10% 12%; transition: transform 800ms var(--ease); }
+.view:hover img { transform: scale(1.05); }
+.view__tag { position: absolute; top: 18px; inset-inline-end: 20px; font: 500 .8125rem/1 var(--text); letter-spacing: .12em; color: #3b3129; z-index: 1; }
+.view__brand { position: absolute; top: 18px; inset-inline-start: 20px; font: 600 .75rem/1 var(--display); color: #3b3129; z-index: 1; }
+
+/* Specs */
+.specs { margin-top: var(--gap); display: grid; grid-template-columns: 5fr 7fr; gap: clamp(16px, 3vw, 40px); align-items: start; }
+.specs h2 { font-size: clamp(2rem, 1.3rem + 2.8vw, 3.75rem); margin-top: 14px; }
+.specs__intro p { margin-top: 20px; color: var(--soft); max-width: 40ch; }
+.specs table { width: 100%; border-collapse: collapse; }
+.specs__box { padding: 10px 28px; }
+.specs td { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.08); vertical-align: top; }
+.specs tr:last-child td { border-bottom: 0; }
+.specs td:first-child { color: var(--soft); width: 42%; }
+.specs td:last-child { text-align: end; font-weight: 600; }
+
+/* More from the range: carousel like the reference */
+.more { margin-top: var(--gap); }
+.track { margin-top: 48px; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.track::-webkit-scrollbar { display: none; }
+.mini { flex: 0 0 calc((100% - 48px) / 3.3); scroll-snap-align: start; padding: 14px 14px 22px; display: flex; flex-direction: column; gap: 18px; text-decoration: none; transition: border-color 300ms ease, transform 400ms var(--ease); }
+.mini:hover { border-color: rgba(209,165,72,.7); transform: translateY(-4px); }
+.mini .plate { aspect-ratio: 1; }
+.mini .plate img { padding: 10%; }
+.mini__row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-inline: 8px; }
+.mini h3 { font-size: 1.125rem; }
+.mini small { display: block; margin-top: 6px; color: var(--soft); font-size: .875rem; }
+.mini .circle { width: 42px; height: 42px; flex: none; }
+.bar { margin-top: 28px; height: 2px; background: rgba(255,255,255,.1); border-radius: 2px; }
+.bar i { display: block; height: 100%; width: 30%; background: var(--accent); border-radius: 2px; transition: width 150ms linear; }
+
+/* Closing */
+.close { margin-top: var(--gap); padding: clamp(32px, 6vw, 80px); text-align: center; display: grid; justify-items: center; gap: 24px; }
+.close h2 { font-size: clamp(2.25rem, 1.3rem + 4vw, 5.5rem); max-width: 14ch; }
+.close p { color: var(--soft); max-width: 46ch; }
+footer { padding: 48px var(--margin) 28px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--soft); font-size: .875rem; max-width: 1440px; margin-inline: auto; }
+footer a { color: var(--soft); }
+
+/* Entrances */
+.js [data-in] { opacity: 0; transform: translateY(28px); transition: opacity 900ms var(--ease), transform 900ms var(--ease); transition-delay: calc(var(--d, 0) * 90ms); }
+.js [data-in].is-in { opacity: 1; transform: none; }
+.js .hero h1 { animation: rise 1300ms var(--ease) both; }
+.js .hero__plate { animation: lift 1300ms var(--ease) 150ms both; }
+@keyframes rise { from { opacity: 0; transform: translateY(18%); } }
+@keyframes lift { from { opacity: 0; transform: translateY(40px) scale(.97); } }
+@media (prefers-reduced-motion: reduce) { .js [data-in] { opacity: 1; transform: none; transition: none; } .js .hero h1, .js .hero__plate { animation: none; } * { transition-duration: 1ms !important; } }
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero__stage { grid-template-columns: 1fr; justify-items: center; }
+  .hero__side { padding-bottom: 0; max-width: 46ch; text-align: center; justify-self: center; order: 2; }
+  .hero__side--end { order: 3; }
+  .hero__plate { width: min(100%, 460px); order: 1; }
+  .hero h1 { margin-top: 24px; }
+  .about, .specs { grid-template-columns: 1fr; }
+  .about__plate { aspect-ratio: 16 / 11; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .anatomy__stage { grid-template-columns: 1fr 1fr; }
+  .anatomy__plate { grid-column: 1 / -1; order: -1; max-width: 560px; justify-self: center; width: 100%; }
+  .mini { flex-basis: calc((100% - 16px) / 2.2); }
+}
+/* Phone */
+@media (max-width: 640px) {
+  .hero__meta { grid-template-columns: 1fr 1fr; row-gap: 8px; }
+  .hero__meta span:nth-child(2) { text-align: end; } .hero__meta span:nth-child(3) { text-align: start; }
+  .top__back span { display: none; }
+  .about__row { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr; }
+  .card { min-height: 0; gap: 28px; }
+  .anatomy__stage { grid-template-columns: 1fr; }
+  .views__grid { grid-template-columns: 1fr; }
+  .view { aspect-ratio: 1; }
+  .mini { flex-basis: 78%; }
+  .pill { width: 100%; justify-content: center; }
+  .hero__ctas { width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="smoke" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></symbol>
+    <symbol id="i-burr" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3M6 6l2.1 2.1M15.9 15.9 18 18M6 18l2.1-2.1M15.9 8.1 18 6"/></g></symbol>
+    <symbol id="i-range" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 18h16"/><circle cx="7" cy="13" r="1.2"/><circle cx="12" cy="11" r="2"/><circle cx="18" cy="8" r="3"/></g></symbol>
+    <symbol id="i-dose" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M7 4h10l-2 6H9z"/><path d="M12 10v4"/><path d="M6 20h12l-1.5-6h-9z"/></g></symbol>
+    <symbol id="i-bar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 20V9l7-5 7 5v11z"/><path d="M9 20v-6h6v6"/></g></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <a class="top__back" href="index.html#machines"><span class="circle" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><span data-t="back">Back to Al Shuyukh</span></a>
+    <a class="top__logo" href="index.html" aria-label="Al Shuyukh Coffee"><img src="https://alshuyukhcoffee.com/api/uploads/1782029330708-484951487.png" width="2400" height="2400" alt="Al Shuyukh Coffee"></a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button>
+      <button type="button" data-lang="ckb" lang="ckb" aria-pressed="false">کوردی</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="name">
+      <div class="hero__meta label" id="meta"></div>
+      <div class="hero__stage">
+        <div class="hero__side" data-in style="--d:2"><strong id="claim"></strong><p id="claim-p"></p></div>
+        <div class="plate hero__plate"><img id="hero-img" alt="" width="1504" height="1556"></div>
+        <div class="hero__side hero__side--end" data-in style="--d:3"><strong id="where"></strong><p id="where-p"></p></div>
+      </div>
+      <h1 id="name"></h1>
+      <div class="hero__sub" data-in style="--d:4">
+        <span class="label" id="kind"></span>
+        <div class="hero__ctas">
+          <a class="pill pill--gold" id="ask-hero" href="#"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-t="ask"></span></a>
+          <a class="pill pill--ghost" href="#details"><span data-t="details"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="details" aria-labelledby="about-h">
+      <div class="plate about__plate" data-in><img id="about-img" alt="" width="1666" height="1582" loading="lazy"></div>
+      <div class="glass about__body" data-in style="--d:1">
+        <div>
+          <span class="label" data-t="aboutLabel"></span>
+          <h2 id="about-h" style="margin-top:14px"></h2>
+        </div>
+        <div class="about__text" id="about-text"></div>
+        <div class="about__row" id="stats"></div>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="features-h">
+      <div class="head" data-in>
+        <div><span class="label" data-t="featLabel"></span><h2 id="features-h" data-t="featH"></h2></div>
+      </div>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section class="anatomy" aria-labelledby="anatomy-h">
+      <div class="head" data-in>
+        <div><span class="label" data-t="partsLabel"></span><h2 id="anatomy-h" data-t="partsH"></h2></div>
+      </div>
+      <div class="anatomy__stage">
+        <ul class="parts" id="parts-a"></ul>
+        <div class="plate anatomy__plate" id="anatomy-plate" data-in><img id="anatomy-img" alt="" width="1666" height="1582" loading="lazy"></div>
+        <ul class="parts parts--end" id="parts-b"></ul>
+      </div>
+    </section>
+
+    <section class="views" aria-labelledby="views-h">
+      <div class="head" data-in>
+        <div><span class="label" data-t="viewsLabel"></span><h2 id="views-h" data-t="viewsH"></h2></div>
+      </div>
+      <div class="views__grid" id="views"></div>
+    </section>
+
+    <section class="specs" aria-labelledby="specs-h">
+      <div class="specs__intro" data-in>
+        <span class="label" data-t="specsLabel"></span>
+        <h2 id="specs-h" data-t="specsH"></h2>
+        <p data-t="specsP"></p>
+      </div>
+      <div class="glass specs__box" data-in style="--d:1"><table><tbody id="specs"></tbody></table></div>
+    </section>
+
+    <section class="more" aria-labelledby="more-h">
+      <div class="head" data-in>
+        <div><span class="label" data-t="moreLabel"></span><h2 id="more-h" data-t="moreH"></h2></div>
+        <div class="controls">
+          <button type="button" class="circle flip" id="prev" aria-label="Previous"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+          <output id="count">01 / 04</output>
+          <button type="button" class="circle flip" id="next" aria-label="Next"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+      <div class="track" id="track"></div>
+      <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+    </section>
+
+    <section class="glass close" aria-labelledby="close-h" data-in>
+      <span class="label" data-t="closeLabel"></span>
+      <h2 id="close-h"></h2>
+      <p data-t="closeP"></p>
+      <div class="hero__ctas" style="justify-content:center">
+        <a class="pill pill--gold" id="ask-close" href="#"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-t="ask"></span></a>
+        <a class="pill pill--ghost" href="tel:+9647506000140" dir="ltr">+964 750 600 0140</a>
+      </div>
+    </section>
+  </main>
+</div>
+<footer>
+  <span>© 2026 Alshuyukh Coffee Trading L.L.C S.O.C · <a href="index.html" data-t="home">Home</a></span>
+  <span data-t="credit">Product photos: Al Shuyukh Coffee. Mahlkönig and EK43 are trademarks of their owner.</span>
+</footer>
+
+<script>
+const IMG = 'https://alshuyukhcofee-images.s3.eu-north-1.amazonaws.com/categories/';
+const WA = '9647506000140';
+
+/* ---------- The product. Change this object to make a page for another product. ---------- */
+const PRODUCT = {
+  name: 'EK43',
+  brand: 'Mahlkönig',
+  photos: {
+    hero: IMG + 'Grinders/products/ek43/product-images/image-1782643855573.webp',
+    side: IMG + 'undefined/products/undefined/product-images/image-1782643721427.webp',
+    front: IMG + 'Grinders/products/ek43/product-images/image-1782643855573.webp',
+    back: IMG + 'Grinders/products/ek43/product-images/image-1782643855565.webp',
+  },
+  // where each numbered dot sits on the side photo, in % of the picture
+  dots: [[46, 18], [40, 45], [37, 58], [53, 90]],
+  icons: ['i-burr', 'i-range', 'i-dose', 'i-bar'],
+  more: [
+    { name: 'Omnia', brand: 'Mahlkönig', img: IMG + 'undefined/products/undefined/product-images/image-1782643055443.webp' },
+    { name: 'E80W GbS', brand: 'Mahlkönig', img: IMG + 'undefined/products/undefined/product-images/image-1782644167470.webp' },
+    { name: 'E65S GbS', brand: 'Mahlkönig', img: IMG + 'Grinders/products/e65-gbs/product-images/image-1782640306651.webp' },
+    { name: 'X54', brand: 'Mahlkönig', img: IMG + 'undefined/products/undefined/product-images/image-1782643395793.webp' },
+  ],
+  text: {
+    en: {
+      meta: ['Mahlkönig', 'Commercial grinder', 'Al Shuyukh Coffee', 'Erbil, Kurdistan'],
+      claim: 'One grinder for the whole menu.', claimP: 'Espresso, filter and Turkish from the same burrs, the same dial and the same machine.',
+      where: 'Available in Erbil.', whereP: 'Order through Al Shuyukh Coffee and we help you set it up with the right beans.',
+      kind: 'Mahlkönig · Flat-burr grinder',
+      aboutH: 'About the EK43',
+      about: ['The EK43 started life as a shop grinder and became a favourite of specialty coffee bars around the world.', 'Its large flat burrs grind evenly from powder-fine to coarse, so one machine can serve espresso, filter and Turkish coffee. Many baristas use it for single doses, grinding each cup fresh.'],
+      stats: [['98 mm', 'flat burrs'], ['Turkish', 'to coarse'], ['1 dose', 'at a time']],
+      features: [['Large flat burrs', 'Big cast-steel burrs grind evenly for a clear, sweet cup.'], ['Espresso to Turkish', 'One dial covers the whole range, from powder-fine to coarse filter.'], ['Single dosing', 'Grind each dose fresh, straight into the portafilter or a bag.'], ['Built for the bar', 'A heavy, stable body made for long days of service.']],
+      parts: [['Hopper', 'Holds the beans. Many bars use it for one dose at a time.'], ['Burr chamber', 'Where the large flat burrs do the grinding.'], ['Spout', 'Grounds fall straight into the cup, portafilter or bag.'], ['Base', 'A wide, heavy stand that keeps it steady on the counter.']],
+      views: ['FRONT', 'SIDE', 'BACK'],
+      specs: [['Burrs', '98 mm flat burrs'], ['Grind range', 'Turkish to coarse'], ['Best for', 'Espresso, filter, Turkish, retail bags'], ['Hopper', 'About 1.5 kg'], ['Weight', 'About 23 kg'], ['Price', 'On request']],
+      closeH: 'Bring the EK43 to your bar',
+    },
+    ar: {
+      meta: ['ماهلكونيغ', 'مطحنة تجارية', 'بُن الشيوخ', 'أربيل، كوردستان'],
+      claim: 'مطحنة واحدة لكل القائمة.', claimP: 'إسبريسو وفلتر وقهوة تركية من نفس الشفرات ونفس القرص ونفس الماكينة.',
+      where: 'متوفرة في أربيل.', whereP: 'اطلبها من بُن الشيوخ ونساعدك على تجهيزها مع البن المناسب.',
+      kind: 'ماهلكونيغ · مطحنة بشفرات مسطحة',
+      aboutH: 'عن EK43',
+      about: ['بدأت EK43 كمطحنة للمتاجر، ثم أصبحت المفضلة لدى مقاهي القهوة المختصة حول العالم.', 'شفراتها المسطحة الكبيرة تطحن بالتساوي من الناعم جداً إلى الخشن، فتخدم ماكينة واحدة الإسبريسو والفلتر والقهوة التركية. ويستخدمها كثير من الباريستا لطحن كل جرعة طازجة.'],
+      stats: [['98 ملم', 'شفرات مسطحة'], ['تركي', 'إلى خشن'], ['جرعة', 'في كل مرة']],
+      features: [['شفرات مسطحة كبيرة', 'شفرات فولاذية كبيرة تطحن بالتساوي لفنجان صافٍ وحلو.'], ['من الإسبريسو إلى التركي', 'قرص واحد يغطي كل الدرجات، من الناعم جداً إلى الخشن.'], ['طحن جرعة واحدة', 'اطحن كل جرعة طازجة مباشرة في البورتافلتر أو الكيس.'], ['مصممة للمقاهي', 'جسم ثقيل وثابت لساعات عمل طويلة.']],
+      parts: [['الخزان', 'يحمل حبوب القهوة، وتستخدمه مقاهٍ كثيرة لجرعة واحدة في كل مرة.'], ['غرفة الشفرات', 'هنا تطحن الشفرات المسطحة الكبيرة.'], ['المصب', 'ينزل البن مباشرة في الفنجان أو البورتافلتر أو الكيس.'], ['القاعدة', 'قاعدة عريضة وثقيلة تثبّتها على الطاولة.']],
+      views: ['أمام', 'جانب', 'خلف'],
+      specs: [['الشفرات', 'شفرات مسطحة 98 ملم'], ['درجات الطحن', 'من التركي إلى الخشن'], ['الأنسب لـ', 'إسبريسو، فلتر، تركي، أكياس للبيع'], ['الخزان', 'حوالي 1.5 كغم'], ['الوزن', 'حوالي 23 كغم'], ['السعر', 'عند الطلب']],
+      closeH: 'أضف EK43 إلى مقهاك',
+    },
+    ckb: {
+      meta: ['ماهلکۆنیگ', 'هاڕەری بازرگانی', 'بونی شیوخ', 'هەولێر، کوردستان'],
+      claim: 'یەک هاڕەر بۆ هەموو لیستەکە.', claimP: 'ئێسپرێسۆ، فلتەر و قاوەی تورکی لە هەمان تیغ، هەمان دوگمە و هەمان ئامێر.',
+      where: 'لە هەولێر بەردەستە.', whereP: 'لە بونی شیوخ داوای بکە، یارمەتیت دەدەین لەگەڵ قاوەی گونجاو دایبمەزرێنیت.',
+      kind: 'ماهلکۆنیگ · هاڕەری تیغی تەخت',
+      aboutH: 'دەربارەی EK43',
+      about: ['EK43 وەک هاڕەرێکی دوکان دەستی پێکرد و بووە دڵخوازی کافێ تایبەتەکانی قاوە لە سەرانسەری جیهان.', 'تیغە تەختە گەورەکانی بە یەکسانی لە زۆر وردەوە تا زبر دەهاڕن، بۆیە یەک ئامێر خزمەتی ئێسپرێسۆ، فلتەر و قاوەی تورکی دەکات. زۆر لە باریستاکان بۆ هاڕینی هەر دۆزێک بە تازەیی بەکاری دەهێنن.'],
+      stats: [['98 ملم', 'تیغی تەخت'], ['تورکی', 'تا زبر'], ['یەک دۆز', 'لە هەر جارێکدا']],
+      features: [['تیغی تەختی گەورە', 'تیغی پۆڵای گەورە بە یەکسانی دەهاڕێت بۆ فنجانێکی ڕوون و شیرین.'], ['لە ئێسپرێسۆوە تا تورکی', 'یەک دوگمە هەموو ئاستەکان دەگرێتەوە، لە زۆر وردەوە تا زبر.'], ['هاڕینی یەک دۆز', 'هەر دۆزێک بە تازەیی ڕاستەوخۆ بۆ پۆرتافلتەر یان پاکەت بهاڕە.'], ['دروستکراو بۆ کافێ', 'جەستەیەکی قورس و جێگیر بۆ ڕۆژانی درێژی کار.']],
+      parts: [['هۆپەر', 'دەنکی قاوە هەڵدەگرێت، زۆر کافێ بۆ یەک دۆز لە هەر جارێکدا بەکاری دەهێنن.'], ['ژووری تیغ', 'لێرەدا تیغە تەختە گەورەکان دەهاڕن.'], ['لوولە', 'قاوەی هاڕاو ڕاستەوخۆ دەڕژێتە فنجان، پۆرتافلتەر یان پاکەت.'], ['بنکە', 'بنکەیەکی پان و قورس کە لەسەر مێز جێگیری دەکات.']],
+      views: ['پێشەوە', 'لاتەنیشت', 'دواوە'],
+      specs: [['تیغ', 'تیغی تەختی 98 ملم'], ['ئاستی هاڕین', 'لە تورکییەوە تا زبر'], ['باشترین بۆ', 'ئێسپرێسۆ، فلتەر، تورکی، پاکەتی فرۆشتن'], ['هۆپەر', 'نزیکەی 1.5 کگم'], ['کێش', 'نزیکەی 23 کگم'], ['نرخ', 'بە داواکاری']],
+      closeH: 'EK43 بهێنە بۆ کافێکەت',
+    },
+  },
+};
+
+/* ---------- Page words ---------- */
+const UI = {
+  en: { back: 'Back to Al Shuyukh', ask: 'Ask on WhatsApp', details: 'See the details', aboutLabel: 'The grinder', featLabel: 'Why it matters', featH: 'Made for every brew', partsLabel: 'Anatomy', partsH: 'Every part has a job', viewsLabel: 'Views', viewsH: 'From every side', specsLabel: 'Specifications', specsH: 'The numbers', specsP: 'Ask us for the latest model details and the price in Iraq.', moreLabel: 'More from the range', moreH: 'Other grinders we carry', closeLabel: 'Al Shuyukh Coffee, Erbil', closeP: 'Message us and we reply with the price, delivery and the beans we would pair with it.', home: 'Home', credit: 'Product photos: Al Shuyukh Coffee. Mahlkönig and EK43 are trademarks of their owner.', prev: 'Previous', next: 'Next', askMsg: n => `Hi Al Shuyukh, I am interested in the ${n} grinder. What is the price?` },
+  ar: { back: 'العودة إلى بُن الشيوخ', ask: 'اسأل عبر واتساب', details: 'شاهد التفاصيل', aboutLabel: 'المطحنة', featLabel: 'لماذا هي مميزة', featH: 'مصممة لكل طريقة تحضير', partsLabel: 'الأجزاء', partsH: 'لكل جزء وظيفة', viewsLabel: 'الزوايا', viewsH: 'من كل جانب', specsLabel: 'المواصفات', specsH: 'بالأرقام', specsP: 'اسألنا عن آخر تفاصيل الموديل والسعر في العراق.', moreLabel: 'المزيد من المجموعة', moreH: 'مطاحن أخرى لدينا', closeLabel: 'بُن الشيوخ، أربيل', closeP: 'راسلنا ونردّ عليك بالسعر والتوصيل والبن الذي ننصح به معها.', home: 'الرئيسية', credit: 'صور المنتج: بُن الشيوخ. Mahlkönig وEK43 علامتان تجاريتان لمالكهما.', prev: 'السابق', next: 'التالي', askMsg: n => `مرحباً بُن الشيوخ، أنا مهتم بمطحنة ${n}. كم السعر؟` },
+  ckb: { back: 'گەڕانەوە بۆ بونی شیوخ', ask: 'لە واتسئاپ بپرسە', details: 'وردەکارییەکان ببینە', aboutLabel: 'هاڕەرەکە', featLabel: 'بۆچی تایبەتە', featH: 'بۆ هەموو شێوازێکی ئامادەکردن', partsLabel: 'پارچەکان', partsH: 'هەر پارچەیەک ئەرکی خۆی هەیە', viewsLabel: 'گۆشەکان', viewsH: 'لە هەموو لایەکەوە', specsLabel: 'تایبەتمەندییەکان', specsH: 'بە ژمارە', specsP: 'دەربارەی دوایین وردەکاری مۆدێل و نرخ لە عێراق لێمان بپرسە.', moreLabel: 'زیاتر لە کۆمەڵەکە', moreH: 'هاڕەری تر کە هەمانە', closeLabel: 'بونی شیوخ، هەولێر', closeP: 'نامەمان بۆ بنێرە، نرخ و گەیاندن و ئەو قاوەیەی پێشنیاری دەکەین پێت دەڵێین.', home: 'سەرەکی', credit: 'وێنەی بەرهەم: بونی شیوخ. Mahlkönig و EK43 نیشانەی بازرگانی خاوەنەکەیانن.', prev: 'پێشوو', next: 'دواتر', askMsg: n => `سڵاو بونی شیوخ، حەزم لە هاڕەری ${n}ە. نرخەکەی چەندە؟` },
+};
+
+/* ---------- Build ---------- */
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2, '0');
+const wa = msg => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+let lang = document.documentElement.lang === 'ar' || document.documentElement.lang === 'ckb' ? document.documentElement.lang : 'en';
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { threshold: .12 });
+
+function render() {
+  const P = PRODUCT, x = P.text[lang], u = UI[lang];
+  document.documentElement.lang = lang; document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
+  document.title = `${P.brand} ${P.name} — Al Shuyukh Coffee`;
+  document.querySelectorAll('[data-t]').forEach(el => { el.textContent = u[el.dataset.t]; });
+  document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+  $('prev').setAttribute('aria-label', u.prev); $('next').setAttribute('aria-label', u.next);
+
+  $('meta').innerHTML = x.meta.map(m => `<span>${m}</span>`).join('');
+  $('claim').textContent = x.claim; $('claim-p').textContent = x.claimP;
+  $('where').textContent = x.where; $('where-p').textContent = x.whereP;
+  $('name').textContent = P.name; $('kind').textContent = x.kind;
+  $('hero-img').src = P.photos.hero; $('hero-img').alt = `${P.brand} ${P.name}`;
+  $('ask-hero').href = $('ask-close').href = wa(u.askMsg(`${P.brand} ${P.name}`));
+
+  $('about-h').textContent = x.aboutH;
+  $('about-img').src = P.photos.side; $('about-img').alt = `${P.brand} ${P.name}, side view`;
+  $('about-text').innerHTML = x.about.map(p => `<p>${p}</p>`).join('');
+  $('stats').innerHTML = x.stats.map(([b, s]) => `<div class="stat"><b>${b}</b><span>${s}</span></div>`).join('');
+
+  $('cards').innerHTML = x.features.map(([h, p], i) => `<article class="glass card" data-in style="--d:${i}"><div class="card__top"><span class="card__num">${pad(i + 1)}</span><span class="card__icon" aria-hidden="true"><svg><use href="#${P.icons[i]}"/></svg></span></div><div><h3>${h}</h3><p>${p}</p></div></article>`).join('');
+
+  $('anatomy-img').src = P.photos.side; $('anatomy-img').alt = `${P.brand} ${P.name} with its parts numbered`;
+  const part = (pt, i) => `<li class="glass part" data-part="${i}" tabindex="0"><span class="part__name"><i>${i + 1}</i>${pt[0]}</span><p>${pt[1]}</p></li>`;
+  $('parts-a').innerHTML = x.parts.slice(0, 2).map((pt, i) => part(pt, i)).join('');
+  $('parts-b').innerHTML = x.parts.slice(2).map((pt, i) => part(pt, i + 2)).join('');
+  const plate = $('anatomy-plate');
+  plate.querySelectorAll('.dot').forEach(d => d.remove());
+  P.dots.forEach(([l, t], i) => plate.insertAdjacentHTML('beforeend', `<span class="dot" data-part="${i}" style="left:${l}%;top:${t}%" aria-hidden="true">${i + 1}</span>`));
+
+  const shots = [P.photos.front, P.photos.side, P.photos.back];
+  $('views').innerHTML = shots.map((src, i) => `<figure class="plate view" data-in style="--d:${i};margin:0"><span class="view__brand">${P.brand.toUpperCase()}</span><span class="view__tag">[${x.views[i]}]</span><img src="${src}" alt="${P.name}, ${x.views[i].toLowerCase()}" loading="lazy"></figure>`).join('');
+
+  $('specs').innerHTML = x.specs.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+
+  $('track').innerHTML = P.more.map(m => `<a class="glass mini" href="${wa(u.askMsg(`${m.brand} ${m.name}`))}"><div class="plate"><img src="${m.img}" alt="${m.brand} ${m.name}" loading="lazy"></div><div class="mini__row"><div><h3 dir="ltr">${m.name}</h3><small>${m.brand}</small></div><span class="circle flip" aria-hidden="true"><svg><use href="#i-wa"/></svg></span></div></a>`).join('');
+  $('close-h').textContent = x.closeH;
+
+  document.querySelectorAll('[data-in]').forEach(el => io.observe(el));
+  bindParts(); $('track').scrollLeft = 0; progress();
+}
+
+function bindParts() {
+  const set = n => document.querySelectorAll('[data-part]').forEach(el => el.classList.toggle('is-on', el.dataset.part === n));
+  document.querySelectorAll('.part').forEach(p => {
+    p.addEventListener('pointerenter', () => set(p.dataset.part));
+    p.addEventListener('focus', () => set(p.dataset.part));
+    p.addEventListener('pointerleave', () => set(null));
+    p.addEventListener('blur', () => set(null));
+  });
+}
+
+/* Carousel with counter and progress line */
+const track = $('track');
+function progress() {
+  const max = track.scrollWidth - track.clientWidth;
+  const f = max > 0 ? Math.abs(track.scrollLeft) / max : 0;
+  const view = track.clientWidth / track.scrollWidth;
+  $('bar').style.width = (view + (1 - view) * f) * 100 + '%';
+  const n = PRODUCT.more.length;
+  $('count').textContent = `${pad(Math.min(n, Math.round(f * (n - 1)) + 1))} / ${pad(n)}`;
+}
+track.addEventListener('scroll', progress, { passive: true });
+addEventListener('resize', progress);
+const step = () => (track.firstElementChild.offsetWidth + 16) * (document.dir === 'rtl' ? -1 : 1);
+$('next').addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+$('prev').addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+
+document.querySelectorAll('.langs button').forEach(b => b.addEventListener('click', () => {
+  lang = b.dataset.lang; try { localStorage.setItem('lang', lang); } catch (e) {} render();
+}));
+render();
+</script>
+</body>
+</html>
