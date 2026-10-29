@@ -179,7 +179,7 @@ html.js { background: var(--ground); }
 .hero__lead { max-width: 44ch; margin: 28px auto 0; font-size: var(--step-lead); line-height: 1.4; }
 .hero__tag { margin-top: 14px; font-family: var(--ruqaa); font-weight: 700; font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem); color: var(--gold-2); line-height: 1.6; }
 
-.stack { --offset: clamp(56px, 7.2vh, 72px); --gap: 9px; position: absolute; left: 6%; right: 6%; top: max(55svh, 460px); bottom: 0; }
+.stack { --offset: clamp(54px, 6.6vh, 72px); --gap: 9px; position: absolute; left: 6%; right: 6%; top: max(50svh, 470px); bottom: 0; }
 /* Dark smoky glass: faint tint, thin glowing edge in the bag colour, a soft glow in one corner */
 .folder {
   --edge: color-mix(in srgb, var(--c) 70%, #fff 12%);
@@ -529,7 +529,7 @@ body { transition: opacity 220ms ease; }
   .hero h1 { font-size: 17vw; }
   [dir="rtl"] .hero h1 { font-size: 16vw; }
   .hero__lead { font-size: 1.0625rem; margin-top: 20px; }
-  .stack { --offset: 58px; --gap: 8px; left: 12px; right: 12px; top: max(57svh, 430px); }
+  .stack { --offset: 58px; --gap: 8px; left: 12px; right: 12px; top: max(calc(100svh - 425px), 330px); }
   .folder { border-radius: 16px; padding-inline: 8px; gap: 10px; }
   .folder__num { display: none; }
   .folder__tab { margin-inline-start: calc(var(--i) * 14px); height: 36px; padding: 0 16px; gap: 8px; }
@@ -646,10 +646,11 @@ body { transition: opacity 220ms ease; }
     <a class="folder" href="#blends" style="--i:1; --c:#4a6296; --x:16%"><span class="folder__num" aria-hidden="true">02</span><span class="folder__tab"><span class="tab__main" data-i18n="fBlends">Eight blends</span></span><span class="folder__go flip" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
     <a class="folder" href="#roastery" style="--i:2; --c:var(--red); --x:32%"><span class="folder__num" aria-hidden="true">03</span><span class="folder__tab"><span class="tab__main" data-i18n="fProcess">Bean to cup</span></span><span class="folder__go flip" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
     <a class="folder" href="#machines" style="--i:3; --c:var(--blue); --x:48%"><span class="folder__num" aria-hidden="true">04</span><span class="folder__tab"><span class="tab__main" data-i18n="fMachines">Machines</span></span><span class="folder__go flip" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
-    <div class="folder folder--front" style="--i:4; --c:var(--gold)">
+    <a class="folder" href="grinder.html" style="--i:4; --c:#8c8f96; --x:64%"><span class="folder__num" aria-hidden="true">05</span><span class="folder__tab"><span class="tab__main" data-i18n="fGrinder">Mahlkönig EK43 grinder</span></span><span class="folder__go flip" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span></a>
+    <div class="folder folder--front" style="--i:5; --c:var(--gold)">
       <div class="folder__body">
         <div class="folder__lead">
-          <span class="folder__num" aria-hidden="true">05</span>
+          <span class="folder__num" aria-hidden="true">06</span>
           <a class="folder__tab" href="#order"><span class="tab__main" data-i18n="fOrder">Order</span></a>
           <p data-i18n="frontNote">Choose a blend and a grind, and we reply on WhatsApp with the price.</p>
         </div>
@@ -943,7 +944,7 @@ const T = {
     skip: 'انتقل إلى المحتوى', skipIntro: 'تخطَّ المقدمة', backTop: 'العودة للأعلى',
     navBlends: 'الخلطات', navRoastery: 'المحمصة', navMachines: 'المكائن', navFind: 'موقعنا',
     heroTitle: 'بُن الشّيوخ', heroLead: 'قهوة تُحمَّص في أربيل وفق الأسلوب الإيطالي. أول محمصة إيطالية حِرَفية في العراق.', heroTag: 'من روح إيطاليا إلى قلب كوردستان',
-    fStory: 'قصتنا', fBlends: 'ثماني خلطات', fProcess: 'من الحبّة إلى الفنجان', fMachines: 'المكائن', fOrder: 'اطلب',
+    fStory: 'قصتنا', fBlends: 'ثماني خلطات', fProcess: 'من الحبّة إلى الفنجان', fMachines: 'المكائن', fGrinder: 'مطحنة ماهلكونيغ EK43', fOrder: 'اطلب',
     orderBtn: 'اطلب عبر واتساب', frontNote: 'اختر الخلطة ودرجة الطحن، ونردّ عليك عبر واتساب بالسعر.',
     storyH: 'إيطاليا، محمّصة في أربيل', storyNote: 'من أجود مناشئ القهوة في العالم إلى محمصتنا على طريق أربيل–الموصل، تُختار كل دفعة وتُحمَّص تحت إشراف خبراء قهوة إيطاليين، ثم تُعبّأ بلون خلطتها.',
     f1: 'الأولى', f1s: 'أول محمصة إيطالية حِرَفية في العراق', f2: 'ثمانية', f2s: 'أنواع من القهوة، من الإسبريسو إلى التركية', f3: 'السبت–الخميس', f3s: 'من 9:00 إلى 16:00 في 32 بارك، أربيل', f4: 'رسالة واحدة', f4s: 'للطلب: نرسل كل الأسعار عبر واتساب',
@@ -992,7 +993,7 @@ const T = {
     skip: 'بڕۆ بۆ ناوەڕۆک', skipIntro: 'تێپەڕاندنی پێشەکی', backTop: 'گەڕانەوە بۆ سەرەوە',
     navBlends: 'تێکەڵەکان', navRoastery: 'برژێنگە', navMachines: 'ئامێرەکان', navFind: 'شوێنمان',
     heroTitle: 'بُن الشّيوخ', heroLead: 'قاوەیەک لە هەولێر بە شێوازی ئیتاڵی دەبرژێندرێت. یەکەم برژێنگەی دەستکردی ئیتاڵی لە عێراق.', heroTag: 'من روح إيطاليا إلى قلب كوردستان',
-    fStory: 'چیرۆکمان', fBlends: 'هەشت تێکەڵە', fProcess: 'لە دەنکەوە بۆ فنجان', fMachines: 'ئامێرەکان', fOrder: 'داواکاری',
+    fStory: 'چیرۆکمان', fBlends: 'هەشت تێکەڵە', fProcess: 'لە دەنکەوە بۆ فنجان', fMachines: 'ئامێرەکان', fGrinder: 'هاڕەری ماهلکۆنیگ EK43', fOrder: 'داواکاری',
     orderBtn: 'لە واتسئاپ داوا بکە', frontNote: 'تێکەڵە و ئاستی هاڕین هەڵبژێرە، لە واتسئاپ نرخەکەت بۆ دەنێرین.',
     storyH: 'ئیتاڵیا، لە هەولێر برژاو', storyNote: 'لە باشترین سەرچاوەکانی قاوەی جیهانەوە بۆ برژێنگەکەمان لەسەر ڕێگای هەولێر–موسڵ، هەموو بڕێک بە سەرپەرشتی پسپۆڕانی قاوەی ئیتاڵی هەڵدەبژێردرێت و دەبرژێندرێت، پاشان بە ڕەنگی تێکەڵەکەی پاکەت دەکرێت.',
     f1: 'یەکەم', f1s: 'یەکەم برژێنگەی دەستکردی ئیتاڵی لە عێراق', f2: 'هەشت', f2s: 'جۆر قاوە، لە ئێسپرێسۆوە تا تورکی', f3: 'شەممە–پێنجشەممە', f3s: 'لە 9:00 تا 16:00 لە 32 پارک، هەولێر', f4: 'یەک نامە', f4s: 'بۆ داواکردن: هەموو نرخێک لە واتسئاپ دەنێرین',
