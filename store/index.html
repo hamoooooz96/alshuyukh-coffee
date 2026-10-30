@@ -1868,7 +1868,8 @@ function pickHeroVideo() {
   heroVid.poster = PORTRAIT.matches ? 'assets/hero-poster-mobile.jpg' : 'assets/hero-poster.jpg';
   heroVid.setAttribute('src', want);
   heroVid.load();
-  try { heroVid.currentTime = t; } catch (e) {}
+  // resume where the other version was, then re-check the headline tone for that moment
+  heroVid.addEventListener('loadedmetadata', () => { try { heroVid.currentTime = t; } catch (e) {} if (typeof heroTone === 'function') heroTone(); }, { once: true });
   if (wasPlaying || heroVid.autoplay) { const p = heroVid.play(); if (p && p.catch) p.catch(() => {}); }
 }
 // light scenes in the film (seconds): logo intro and gold scene, then the cream frame at the loop point
@@ -1884,6 +1885,7 @@ if (heroVid) {
   pickHeroVideo();
   (PORTRAIT.addEventListener ? PORTRAIT.addEventListener('change', pickHeroVideo) : PORTRAIT.addListener(pickHeroVideo));
   heroVid.addEventListener('timeupdate', heroTone);
+  heroVid.addEventListener('seeked', heroTone);
   heroVid.addEventListener('error', heroFallback);
   if (reduce) { heroVid.removeAttribute('autoplay'); heroVid.pause(); }
   else {
